@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MJPayView : UIView
+@property(nonatomic,strong)UITextField *moneyTextField;
 
+@property(nonatomic,strong)UIButton    *commitBtn;
+
+//wechat
+@property(nonatomic,strong)UIButton    *wechatBtn;
+
+//ali
+@property(nonatomic,strong)UIButton    *aliBtn;
 @end

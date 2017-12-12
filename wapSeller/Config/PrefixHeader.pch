@@ -12,4 +12,54 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import <UIKit/UIKit.h>
+
+//Base
+#import "MJTabBarController.h"
+#import "MJBaseViewController.h"
+#import "MJLoginViewController.h"
+#import "MJUpWaitingViewController.h"
+#import "Define.h"
+
+
+//manger
+#import "MJNetManger.h"
+#import "MJLabelManager.h"
+#import "MJBtnManager.h"
+#import "MJTxFieldManager.h"
+#import "MJMJRefreshManage.h"
+#import "MJEncryption.h"
+#import "MJRegularManager.h"
+#import "ProgressHUD_Manager.h"
+#import "DicJsonManager.h"
+#import "Base64ImageManager.h"
+#import "AliPayManager.h"
+#import "WechatManager.h"
+#import "Tool_MJ.h"
+#import "MJUpdateUserInfo.h"
+#import "MJEmptyManager.h"
+#import "CheckNetManage.h"
+#import "FMDB_Manager.h"
+#import "Token_Manager.h"
+
+//third
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import <MBProgressHUD.h>
+#import <iflyMSC/iflyMSC.h>
+#import "PcmPlayer.h"
+#import "TTSConfig.h"
+
+//category
+#import "UIColor+UIColor_Util.h"
+#import "UIImage+mjimage.h"
+#import "NSString+mj.h"
+#import "NSDictionary+mj.h"
+
+//components
+#import "MJNavlogoView.h"
+#import "MJHeader_tableView.h"
+#import "MJSuccessfulPopView.h"
+#import "MJFailedPopView.h"
+
 #endif /* PrefixHeader_pch */

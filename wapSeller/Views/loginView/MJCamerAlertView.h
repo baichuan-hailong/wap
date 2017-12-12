@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface MJCamerAlertView : UIView
+@property(nonatomic, strong)UIButton *photoBtn;
+@property(nonatomic, strong)UIButton *camerBtn;
+@property(nonatomic, strong)UIButton *cancleBtn;
+
+
+@property(nonatomic, strong)UIView *camerView;
+- (void)show;
+- (void)hide;
 
 @end

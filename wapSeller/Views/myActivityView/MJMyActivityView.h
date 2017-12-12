@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJMyActivityView : UIView
-
+@property(nonatomic,strong)UITableView *myActivityTableView;
 @end

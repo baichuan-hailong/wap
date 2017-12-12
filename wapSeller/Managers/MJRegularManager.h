@@ -9,5 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface MJRegularManager : NSObject
-
++ (BOOL) checkMobile:(NSString *)mobileNumbel;
++ (BOOL) checkUserIdCard :(NSString *)idCard;
++ (BOOL) checkPassword:(NSString *) password;
++ (BOOL) checkURL : (NSString *) url;
++ (BOOL) checkUserName : (NSString *) userName;
++ (BOOL) checkEmail:(NSString *)email;
 @end

@@ -7,16 +7,24 @@
 //
 
 #import "MJBillDetailViewController.h"
+#import "MJBillDetailView.h"
 
 @interface MJBillDetailViewController ()
-
+@property(nonatomic,strong)MJBillDetailView *detailView;
 @end
 
 @implementation MJBillDetailViewController
 
+- (void)loadView{
+    self.detailView = [[MJBillDetailView alloc] initWithFrame:SCREEN_BOUNDS];
+    self.view = self.detailView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"账单明细";
+    
+    [self.detailView setDetail:self.billDic];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +32,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

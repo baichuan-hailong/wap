@@ -7,6 +7,8 @@
 //
 
 #import "MJBaseViewController.h"
+#import "MJPaySuccessfulViewController.h"
+#import "MJPayFailedViewController.h"
 
 @interface MJPayViewController : MJBaseViewController
 

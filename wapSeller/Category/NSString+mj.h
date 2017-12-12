@@ -9,5 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (mj)
+- (BOOL)isNull;
+
+/**
+ *  JSON字符串转NSDictionary
+ *
+ *  @param jsonString JSON字符串
+ *
+ *  @return NSDictionary
+ */
+- (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
 @end

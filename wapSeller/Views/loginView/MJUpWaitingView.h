@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MJUpWaitingView : UIView
-
+@property(nonatomic,strong)UIButton  *resetUpBtn;
+- (void)upView:(BOOL)isSuccessful;
 @end

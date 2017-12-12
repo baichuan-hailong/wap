@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJBillTableViewCell : UITableViewCell
-
+- (void)setBill:(NSDictionary *)billDic;
 @end

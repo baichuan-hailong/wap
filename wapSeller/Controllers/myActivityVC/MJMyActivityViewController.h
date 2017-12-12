@@ -7,7 +7,6 @@
 //
 
 #import "MJBaseViewController.h"
-
 @interface MJMyActivityViewController : MJBaseViewController
 
 @end

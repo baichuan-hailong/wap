@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJEmptyView.h"
 
 @interface MJBaseViewController : UIViewController
+/*empty*/
+@property(nonatomic,strong)MJEmptyView *emptyView;
+@property(nonatomic,strong)MJEmptyView *emptyView_o;
+@property(nonatomic,strong)MJEmptyView *emptyView_t;
 
+- (void)goBackAction;
+
+
+- (void)hideBack;
+- (void)addAction;
 @end

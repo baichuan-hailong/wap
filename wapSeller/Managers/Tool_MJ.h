@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Tool_MJ : NSObject
+//*** 时间戳转换为标准时间 ***//
++ (NSString *)changeTime:(NSString *)timeStr;
++ (NSString *)changeTimeToDay:(NSString *)timeStr;
++ (NSString *)changeTime:(NSString *)timeStr withFormatter:(NSString *)dataFormatter; /* 自定义格式 */
 
 @end

@@ -10,4 +10,10 @@
 
 @interface Base64ImageManager : NSObject
 
+//image - base64
++ (NSString *) image2DataURL: (UIImage *) image;
+
+
+//base64 - image
++ (UIImage *) dataURL2Image: (NSString *) imgSrc;
 @end

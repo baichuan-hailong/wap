@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJOutAlertView : UIView
+@protocol MJOutAlertViewDelegate <NSObject>
+- (void)outClick:(NSInteger)index;
+@end
 
+@interface MJOutAlertView : UIView
+@property (nonatomic,weak)id<MJOutAlertViewDelegate>delegate;
+
+- (void)outAlertShow;
+- (void)outAlertHide;
 @end

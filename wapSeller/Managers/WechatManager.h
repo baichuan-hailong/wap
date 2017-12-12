@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WXApi.h"
 
-@interface WechatManager : NSObject
+@interface WechatManager : NSObject<WXApiDelegate>
++ (instancetype)sharedManager;
 
+//wechat pay
+- (void)wechatPay:(NSDictionary *)payDic;
 @end

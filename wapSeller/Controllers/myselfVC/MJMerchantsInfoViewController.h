@@ -9,5 +9,5 @@
 #import "MJBaseViewController.h"
 
 @interface MJMerchantsInfoViewController : MJBaseViewController
-
+@property(nonatomic,copy)NSDictionary *userInfoDic;
 @end

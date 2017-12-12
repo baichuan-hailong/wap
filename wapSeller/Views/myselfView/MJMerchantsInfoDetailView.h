@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJMerchantsInfoDetailView : UIView
-
+- (void)setDetail:(NSDictionary *)detailDIc;
 @end

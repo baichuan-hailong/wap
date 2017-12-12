@@ -8,14 +8,40 @@
 
 #import "MJMyselfView.h"
 
+
+
+
 @implementation MJMyselfView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addUI];
+    }
+    return self;
 }
-*/
 
+- (void)addUI{
+    
+    self.myselfTableView.separatorStyle               = UITableViewCellSeparatorStyleNone;
+    self.myselfTableView.showsVerticalScrollIndicator = NO;
+    //self.myselfTableView.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
+    //self.myselfTableView.backgroundColor = [UIColor colorWithRed:250/255.0 green:250/255.0 blue:250/255.0 alpha:1];
+    [self addSubview:self.myselfTableView];
+}
+
+-(UITableView *)myselfTableView{
+    
+    if (_myselfTableView==nil) {
+        _myselfTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64-49)];
+    }
+    return _myselfTableView;
+}
+
+- (MJOutAlertView *)outAlertView{
+    if (_outAlertView==nil) {
+        _outAlertView = [[MJOutAlertView alloc] initWithFrame:SCREEN_BOUNDS];
+    }
+    
+    return _outAlertView;
+}
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJFailedPopView : UIView
-
+- (void)setTip:(UIImage *)tipImage tipText:(NSString *)tipText des:(NSString *)desText;
 @end

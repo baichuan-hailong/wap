@@ -7,16 +7,27 @@
 //
 
 #import "MJMerchantsInfoViewController.h"
+#import "MJMerchantsInfoDetailView.h"
 
 @interface MJMerchantsInfoViewController ()
-
+@property(nonatomic,strong)MJMerchantsInfoDetailView *merchantDetailView;
 @end
 
 @implementation MJMerchantsInfoViewController
 
+- (void)loadView{
+    self.merchantDetailView = [[MJMerchantsInfoDetailView alloc] initWithFrame:SCREEN_BOUNDS];
+    self.view = self.merchantDetailView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"商户信息";
+    
+    NSLog(@"%@",self.userInfoDic);
+    
+    [self.merchantDetailView setDetail:self.userInfoDic];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +35,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

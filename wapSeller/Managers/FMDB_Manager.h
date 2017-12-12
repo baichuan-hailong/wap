@@ -9,5 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface FMDB_Manager : NSObject
++ (instancetype)defaultManager;
+- (void)open;
 
+- (void)addData:(NSDictionary *)activityDic;
+
+- (NSMutableArray *)searchData;
+
+- (void)close;
+
+- (void)clear;
 @end

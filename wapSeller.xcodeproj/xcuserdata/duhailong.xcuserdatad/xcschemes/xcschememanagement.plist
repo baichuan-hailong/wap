@@ -7,7 +7,25 @@
 		<key>wapSeller.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E628CFB91FC6C18E00515345</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E628CFD11FC6C18E00515345</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E628CFDC1FC6C18E00515345</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

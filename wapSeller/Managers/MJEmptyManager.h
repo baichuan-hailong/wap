@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MJEmptyView;
 
 @interface MJEmptyManager : NSObject
-
++ (void)check:(UITableView *)tableView dataArray:(NSArray *)dataArray emptyView:(MJEmptyView *)emptyView;
 @end

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface MJUpdateUserInfo : NSObject
-
++ (void)updateInfo;
 @end

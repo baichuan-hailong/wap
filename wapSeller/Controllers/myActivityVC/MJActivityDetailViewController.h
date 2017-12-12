@@ -9,5 +9,5 @@
 #import "MJBaseViewController.h"
 
 @interface MJActivityDetailViewController : MJBaseViewController
-
+@property(nonatomic,copy)NSString *oid;          //活动ID
 @end

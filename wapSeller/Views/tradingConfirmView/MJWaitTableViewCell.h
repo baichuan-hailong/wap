@@ -10,4 +10,8 @@
 
 @interface MJWaitTableViewCell : UITableViewCell
 
+@property (nonatomic, strong)UIButton     *cancleBtn;
+@property (nonatomic, strong)UIButton     *sureBtn;
+
+- (void)setWait:(NSDictionary *)waitDic;
 @end

@@ -10,4 +10,5 @@
 
 @interface MJSelectTableViewCell : UITableViewCell
 
+- (void)setSelect:(NSDictionary *)selectDic;
 @end

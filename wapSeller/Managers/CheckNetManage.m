@@ -12,10 +12,8 @@
 
 
 +(void)checkCurrentNetStateWindow:(UIWindow *)window{
-
-    //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_NetWork];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isShowNetPross"];
     
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isShowNetPross"];
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         //[[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_NetWork];
@@ -53,19 +51,7 @@
 //MBProgress
 + (void)showProgress:(NSString *)tipStr window:(UIWindow *)window{
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isShowNetPross"]) {
-        //只显示文字
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = tipStr;
-        hud.margin = 20.f;
-        //hud.yOffset = 150.f;
-        hud.removeFromSuperViewOnHide = YES;
-        [hud hide:YES afterDelay:1];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"isShowNetPross"];
-    }
-    
+    [ProgressHUD_Manager showTo:window tipText:tipStr];
     
 }
 

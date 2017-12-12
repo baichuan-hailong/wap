@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface DicJsonManager : NSObject
-
++ (NSString*)convertToJSONData:(id)infoDict;
 @end

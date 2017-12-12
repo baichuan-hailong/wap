@@ -9,5 +9,5 @@
 #import "MJBaseViewController.h"
 
 @interface MJUpWaitingViewController : MJBaseViewController
-
+@property(nonatomic,assign)BOOL isSuccessful;
 @end

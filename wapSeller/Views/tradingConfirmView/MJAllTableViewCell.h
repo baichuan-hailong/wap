@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJAllTableViewCell : UITableViewCell
-
+- (void)setWait:(NSDictionary *)waitDic isSure:(BOOL)isSureBool;
 @end

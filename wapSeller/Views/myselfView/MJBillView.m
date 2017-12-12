@@ -10,12 +10,28 @@
 
 @implementation MJBillView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addUI];
+    }
+    return self;
 }
-*/
+
+- (void)addUI{
+    self.billTableView.separatorStyle               = UITableViewCellSeparatorStyleNone;
+    self.billTableView.showsVerticalScrollIndicator = NO;
+    [self addSubview:self.billTableView];
+}
+
+-(UITableView *)billTableView{
+    if (_billTableView==nil) {
+        _billTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStyleGrouped];
+        if (iPhoneX) {
+            _billTableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64-24);
+        }
+    }
+    return _billTableView;
+}
 
 @end

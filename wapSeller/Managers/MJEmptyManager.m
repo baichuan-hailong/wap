@@ -9,5 +9,12 @@
 #import "MJEmptyManager.h"
 
 @implementation MJEmptyManager
-
++ (void)check:(UITableView *)tableView dataArray:(NSArray *)dataArray emptyView:(MJEmptyView *)emptyView{
+    if (dataArray.count>0) {
+        [tableView.tableFooterView removeFromSuperview];
+        tableView.tableFooterView = nil;
+    }else{
+        tableView.tableFooterView = emptyView;
+    }
+}
 @end

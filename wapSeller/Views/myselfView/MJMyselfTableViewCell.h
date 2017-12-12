@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MJMyselfTableViewCell : UITableViewCell
-
+@property(nonatomic,strong)UIView  *line_view;
+- (void)setMysel:(NSDictionary *)myDic;
 @end

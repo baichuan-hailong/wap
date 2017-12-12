@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MJEncryption : NSObject
-
+//md5加密方法
++ (NSString *)md5EncryptWithString:(NSString *)string;
 @end

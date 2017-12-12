@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJBillView : UIView
-
+@property(nonatomic,strong)UITableView *billTableView;
 @end

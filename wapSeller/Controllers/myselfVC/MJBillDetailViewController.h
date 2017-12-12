@@ -9,5 +9,5 @@
 #import "MJBaseViewController.h"
 
 @interface MJBillDetailViewController : MJBaseViewController
-
+@property(nonatomic,copy)NSDictionary *billDic;
 @end

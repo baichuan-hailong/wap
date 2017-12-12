@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJSuccessfulPopView : UIView
-
+- (void)setTip:(UIImage *)tipImage tipText:(NSString *)tipText;
 @end

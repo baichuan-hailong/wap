@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJMyActivityTableViewCell : UITableViewCell
-
+- (void)setMyActivity:(NSDictionary *)activityDic;
 @end

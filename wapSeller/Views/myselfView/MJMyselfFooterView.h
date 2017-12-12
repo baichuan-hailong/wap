@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJMyselfFooterView : UIView
-
+@property(nonatomic, strong)UIButton *outBtn;
 @end

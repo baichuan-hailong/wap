@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Token_Manager : NSObject
-
++ (void)chekToken:(id  _Nullable)responseObject;
 @end

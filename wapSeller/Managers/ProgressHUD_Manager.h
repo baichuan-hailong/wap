@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MBProgressHUD;
 
 @interface ProgressHUD_Manager : NSObject
 
+//文本
++ (void)showTo:(UIView *)toView tipText:(NSString *)tipText;
+
+//菊花
++ (void)shoeProgress:(UIView *)toView hud:(MBProgressHUD *)HUD;
++ (void)hideHud:(MBProgressHUD *)HUD;
 @end

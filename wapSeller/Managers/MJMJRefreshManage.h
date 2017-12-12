@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface MJMJRefreshManage : NSObject
++ (void)headerWithRefreshingTarget:(UIViewController *)target_id tableView:(UITableView *)target_tableView sel:(SEL)sel;
 
+//footer load more
++ (void)footerWithRefreshingTarget:(UIViewController *)target_id tableView:(UITableView *)target_tableView sel:(SEL)sel;
 @end

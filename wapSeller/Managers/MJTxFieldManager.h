@@ -10,4 +10,6 @@
 
 @interface MJTxFieldManager : NSObject
 
++ (void)setTxfield:(UITextField *)textField placeText:(NSString *)placeText textColor:(UIColor *)textColor font:(UIFont *)textFond;
+
 @end

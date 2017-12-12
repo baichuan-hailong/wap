@@ -10,4 +10,12 @@
 
 @interface NSDictionary (mj)
 
+//完善
+- (NSDictionary *)prefectWithDic;
+
+//签名验证
+- (NSDictionary *)signWithSecurityKey;
+
+
+
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MJBillDetailView : UIView
-
+- (void)setDetail:(NSDictionary *)detailDIc;
 @end

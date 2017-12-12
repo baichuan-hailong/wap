@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AliPayManager : NSObject
++(instancetype)defaultAli;
 
+- (void)rechargeOrder:(NSString *)order;
 @end

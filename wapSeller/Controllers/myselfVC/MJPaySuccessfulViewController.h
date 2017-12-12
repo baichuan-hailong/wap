@@ -9,5 +9,6 @@
 #import "MJBaseViewController.h"
 
 @interface MJPaySuccessfulViewController : MJBaseViewController
-
+//money
+@property(nonatomic, copy)NSString *moneyStr;
 @end

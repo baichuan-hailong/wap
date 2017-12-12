@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MJMyActivityDetailView : UIVew
+@interface MJMyActivityDetailView : UIView
+@property(nonatomic,strong)UITableView *activityDetailTableView;
 
+//successful
+@property(nonatomic,strong)MJSuccessfulPopView *successfulPopView;
+
+//failed
+@property(nonatomic,strong)MJFailedPopView     *failedPopView;
 @end

@@ -10,4 +10,7 @@
 
 @interface MJMyselfHeaderView : UIView
 
+@property (nonatomic,strong)UIButton *rechargeBtn;
+
+- (void)setMoney:(NSDictionary *)userInfoDic;
 @end

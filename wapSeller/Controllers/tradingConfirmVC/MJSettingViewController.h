@@ -9,5 +9,5 @@
 #import "MJBaseViewController.h"
 
 @interface MJSettingViewController : MJBaseViewController
-
++(instancetype)shareManager;
 @end

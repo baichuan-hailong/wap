@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJOutAlertView.h"
 
 @interface MJMyselfView : UIView
-
+@property(nonatomic,strong)UITableView    *myselfTableView;
+@property(nonatomic,strong)MJOutAlertView *outAlertView;
 @end

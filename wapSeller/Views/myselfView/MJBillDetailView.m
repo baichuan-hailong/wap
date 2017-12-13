@@ -195,7 +195,7 @@
     
     
     self.paytypeTipLabel.text = @"充值方式";
-    self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",detailDIc[@"channelName"]];
+    
     NSString *channelId = [NSString stringWithFormat:@"%@",detailDIc[@"channelId"]];//方式
     
     NSString *clientId = [NSString stringWithFormat:@"%@",detailDIc[@"clientId"]];
@@ -208,18 +208,24 @@
     }
     
     
-    if (![channelId isEqualToString:@"ALIPAY_MOBILE"]) {
-        self.wechatidTipLabel.text = @"微信ID";
-        self.wechatnoLabel.text    = clientId;
-        self.liushuiTipLabel.text = @"流水号";
-        self.liushuiLabel.text    = billNo;
-        
-    }else{
-        
+    if ([channelId isEqualToString:@"ALIPAY_MOBILE"]) {
         self.wechatidTipLabel.text = @"支付宝ID";
         self.wechatnoLabel.text    = clientId;
         self.liushuiTipLabel.text = @"流水号";
         self.liushuiLabel.text    = billNo;
+        self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",@"支付宝"];
+    }else if([channelId isEqualToString:@"WX_APP"]){
+        self.wechatidTipLabel.text = @"微信ID";
+        self.wechatnoLabel.text    = clientId;
+        self.liushuiTipLabel.text = @"流水号";
+        self.liushuiLabel.text    = billNo;
+        self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",@"微信"];
+    }else{
+        self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",@"线下充值"];
+        self.wechatidTipLabel.alpha = 0;
+        self.wechatnoLabel.alpha = 0;
+        self.liushuiTipLabel.alpha = 0;
+        self.liushuiLabel.alpha = 0;
     }
 }
 

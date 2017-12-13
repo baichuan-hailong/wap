@@ -106,8 +106,9 @@
         if (![jpPregistation_id isNull]) {
             data = @{@"mobile":self.loginView.telTextField.text,@"verifycode":self.loginView.coderTextField.text,@"registrationId":jpPregistation_id};
         }else{
-            data = @{@"mobile":self.loginView.telTextField.text,@"verifycode":self.loginView.coderTextField.text};
+            data = @{@"mobile":self.loginView.telTextField.text,@"verifycode":self.loginView.coderTextField.text,@"registrationId":@"noid"};
         }
+        //data = @{@"mobile":self.loginView.telTextField.text,@"verifycode":self.loginView.coderTextField.text};
         NSString *testurl  = [NSString stringWithFormat:@"%@/client/doLogin",API];
         NSDictionary *pradic = [data prefectWithDic];
         NSLog(@"%@",pradic);
@@ -137,20 +138,26 @@
                         if ([sellerAuditResult isEqualToString:@"0"]) {
                             //0 未升级（已提交资料）--- 审核中ji
                             //已经提交审核
-                            if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_HaveUPCommit]) {
-                                MJUpWaitingViewController *upWairing = [[MJUpWaitingViewController alloc] init];
-                                upWairing.isSuccessful = YES;
-                                UINavigationController *upWaitingNV = [[UINavigationController alloc] initWithRootViewController:upWairing];
-                                [self presentViewController:upWaitingNV animated:NO completion:nil];
-                            }else{
-                                MJUpgradeMerchantViewController *upgradeMerchantVC = [[MJUpgradeMerchantViewController alloc] init];
-                                NSString *oid = [NSString stringWithFormat:@"%@",object[@"data"][@"oid"]];
-                                NSString *promoterId = [NSString stringWithFormat:@"%@",object[@"data"][@"promoterId"]];
-                                upgradeMerchantVC.login_tel = self.loginView.telTextField.text;
-                                upgradeMerchantVC.oid = oid;
-                                upgradeMerchantVC.promoterId = promoterId;
-                                [self.navigationController pushViewController:upgradeMerchantVC animated:YES];
-                            }
+                            
+                            MJUpWaitingViewController *upWairing = [[MJUpWaitingViewController alloc] init];
+                            upWairing.isSuccessful = YES;
+                            UINavigationController *upWaitingNV = [[UINavigationController alloc] initWithRootViewController:upWairing];
+                            [self presentViewController:upWaitingNV animated:NO completion:nil];
+                            
+                            /**
+                             if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_HaveUPCommit]) {
+                             
+                             }else{
+                             MJUpgradeMerchantViewController *upgradeMerchantVC = [[MJUpgradeMerchantViewController alloc] init];
+                             NSString *oid = [NSString stringWithFormat:@"%@",object[@"data"][@"oid"]];
+                             NSString *promoterId = [NSString stringWithFormat:@"%@",object[@"data"][@"promoterId"]];
+                             upgradeMerchantVC.login_tel = self.loginView.telTextField.text;
+                             upgradeMerchantVC.oid = oid;
+                             upgradeMerchantVC.promoterId = promoterId;
+                             [self.navigationController pushViewController:upgradeMerchantVC animated:YES];
+                             }
+                             **/
+                            
                         }else if ([sellerAuditResult isEqualToString:@"1"]){
                             //1 升级成功
                             [MJUpdateUserInfo updateInfo];

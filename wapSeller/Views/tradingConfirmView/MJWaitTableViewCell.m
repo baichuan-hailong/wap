@@ -297,7 +297,8 @@
 
 - (UILabel *)titleLabel{
     if (_titleLabel==nil) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.logoImageView.frame)+em*22, em*60, SCREEN_WIDTH-em*250, em*62)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.logoImageView.frame)+em*22, em*60, SCREEN_WIDTH-em*300, em*62)];
+        //_titleLabel.backgroundColor = [UIColor redColor];
     }
     return _titleLabel;
 }

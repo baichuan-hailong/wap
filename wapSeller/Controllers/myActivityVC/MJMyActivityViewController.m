@@ -71,7 +71,7 @@
     NSString *testurl    = [NSString stringWithFormat:@"%@/shopactivity/listPage",API];
     //NSLog(@"listby --- %@",pradic);
     [[MJNetManger shareManager] requestWithType:HttpRequestTypeGet withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
-        NSLog(@"activity --- %@",object);
+        //NSLog(@"activity --- %@",object);
         [self.hud hideAnimated:YES];
         self.myActivityView.myActivityTableView.mj_footer.state = MJRefreshStateIdle;
         NSString *s = [NSString stringWithFormat:@"%@",object[@"s"]];

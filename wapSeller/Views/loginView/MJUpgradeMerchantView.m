@@ -269,6 +269,8 @@
     self.select_iew.layer.shadowRadius = 5;// 阴影扩散的范围控制
     self.select_iew.layer.shadowOffset  = CGSizeMake(0, 0);// 阴影的范围
     
+    
+    self.markTextField.tag = 8080;
 
 }
 
@@ -379,8 +381,7 @@
 - (UITextField *)markTextField{
     if (_markTextField==nil) {
         _markTextField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-em*35-em*50-em*30-em*700, CGRectGetMaxY(self.shop_line.frame)+em*20, em*700, em*120)];
-        _markTextField.userInteractionEnabled = NO;
-        
+        //_markTextField.userInteractionEnabled = NO;
     }
     return _markTextField;
 }

@@ -65,6 +65,7 @@
 
 - (void)commitSuccessful{
     [self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)maskList{
@@ -105,6 +106,8 @@
     self.upgradeMerchantView.connectPersonTextField.delegate = self;
     self.upgradeMerchantView.connectTelTextField.delegate    = self;
     self.upgradeMerchantView.inviteCoderTextField.delegate   = self;
+    
+     self.upgradeMerchantView.markTextField.delegate   = self;
     
     
     /************change up***********/
@@ -164,11 +167,14 @@
 #pragma mark - TF Delegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSLog(@"should begin");
-    [self hidTa];
-    //[UIView animateWithDuration:0.38 animations:^{
-        //self.loginView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    //}];
-    return YES;
+    if (textField.tag==8080) {
+        [self.view endEditing:YES];
+        [self showTa];
+        return NO;
+    }else{
+        [self hidTa];
+        return YES;
+    }
 }
 
 

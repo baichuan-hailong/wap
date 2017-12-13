@@ -197,12 +197,17 @@
         NSString *cashMoney = [NSString stringWithFormat:@"%@",userInfoDic[@"cashMoney"]];
         //信用余额
         NSString *creditMoneyCanUse = [NSString stringWithFormat:@"%@",userInfoDic[@"creditMoneyCanUse"]];
-        
-        NSString *totalCanUse = [NSString stringWithFormat:@"%.2f",[cashMoney floatValue]+[creditMoneyCanUse floatValue]];
-        
+        //信用已用余额
+        NSString *creditMoneyUsed = [NSString stringWithFormat:@"%@",userInfoDic[@"creditMoneyUsed"]];
+        //可用余额
+        NSString *totalCanUse    = [NSString stringWithFormat:@"%.2f",[cashMoney floatValue]+[creditMoneyCanUse floatValue]];
         self.availableLabel.text = [NSString stringWithFormat:@"%.2f",[totalCanUse floatValue]];
         self.AccountLabel.text   = [NSString stringWithFormat:@"%.2f",[cashMoney floatValue]];
-        self.CreditLabel.text    = [NSString stringWithFormat:@"%.2f",[creditMoneyCanUse floatValue]];
+        if ([creditMoneyUsed floatValue]>0) {
+            self.CreditLabel.text    = [NSString stringWithFormat:@"%.2f（服务欠费%.2f）",[creditMoneyCanUse floatValue],[creditMoneyUsed floatValue]];
+        }else{
+            self.CreditLabel.text    = [NSString stringWithFormat:@"%.2f",[creditMoneyCanUse floatValue]];
+        }
     }
 }
 
@@ -261,7 +266,7 @@
 
 - (UILabel *)CreditLabel{
     if (_CreditLabel==nil) {
-        _CreditLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.CreditTipLabel.frame), em*305, em*280, em*40)];
+        _CreditLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.CreditTipLabel.frame), em*305, em*480, em*40)];
     }
     return _CreditLabel;
 }

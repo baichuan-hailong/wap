@@ -26,7 +26,11 @@
     // Do any additional setup after loading the view.
     self.title = @"升级为商家";
     [self hideBack];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(upCommitSuccessful) name:@"upCommitSuccessful" object:nil];
+    [self rightButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(upCommitSuccessful)
+                                                 name:@"upCommitSuccessful"
+                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(comeBack)
@@ -40,6 +44,73 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self updateInfo];
 }
+
+
+- (void)rightButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"退出" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:em*48];
+    button.titleLabel.textAlignment = NSTextAlignmentRight;
+    [button addTarget:self action:@selector(rightOutAction) forControlEvents:UIControlEventTouchUpInside];
+    button.frame           = CGRectMake(0, 0, 44, 64);
+    
+    //button.imageEdgeInsets = UIEdgeInsetsMake(0,-20, 0, 10);
+    //button.backgroundColor = [UIColor orangeColor];
+    UIBarButtonItem *item  = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)rightOutAction{
+    
+    [self evokeOutAc];
+    
+    MJLoginViewController *loginVC = [[MJLoginViewController alloc] init];
+    UINavigationController *logNC  = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessful" object:nil];
+    [self dismissViewControllerAnimated:NO completion:^{
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNC animated:NO completion:nil];
+    }];
+}
+
+
+- (void)evokeOutAc{
+    //User INFO
+    //是否登录 //SecurityKey //用户id //账户 //邀请码
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:IS_LOGIN];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:SecurityKey];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:UserID];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:LoginTel];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:PromoterId];
+    
+    
+    //up提交与否 //up审核结果 //up是否有提交
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:IS_Seller];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:Seller_AuditResult];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:IS_HaveUPCommit];
+    
+    
+    //商家信息
+    //店铺名
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"clientName_up"];
+    //市场
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"marketName_up"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"marketId_up"];
+    //摊位号
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sellerStallInfo_up"];
+    //联系人
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"linkman_up"];
+    //联系电话
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"telephone_up"];
+    //邀请码
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"inviteCoder_up"];
+    
+}
+
+
+
+
+
 
 - (void)comeBack{
     NSLog(@"come back");

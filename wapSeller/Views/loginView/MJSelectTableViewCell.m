@@ -50,7 +50,6 @@
     if (selectDic!=nil) {
         self.selectLabel.text = [NSString stringWithFormat:@"%@",selectDic[@"marketName"]];
     }
-    
 }
 
 - (UILabel *)selectLabel{

@@ -284,6 +284,22 @@
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:IS_HaveUPCommit];
     
     
+    //商家信息
+    //店铺名
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"clientName_up"];
+    //市场
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"marketName_up"];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"marketId_up"];
+    //摊位号
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"sellerStallInfo_up"];
+    //联系人
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"linkman_up"];
+    //联系电话
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"telephone_up"];
+    //邀请码
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"inviteCoder_up"];
+    
+    
     MJLoginViewController *loginVC = [[MJLoginViewController alloc] init];
     UINavigationController *logNC  = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNC animated:NO completion:nil];

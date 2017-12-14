@@ -7,4 +7,5 @@ target 'wapSeller' do
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'JPush','~> 3.0.7'
     pod 'FMDB','~>2.7.2'
+    pod 'UMengAnalytics'
 end

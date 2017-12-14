@@ -64,21 +64,12 @@
             NSLog(@"registrationID获取失败，code：%d",resCode);
         }
     }];
+
+    //GP  login
+    [[GuidePageManager defaultManage] checkGuidPage];
+    //UM //科大讯飞
+    [UM_Manager initUm];
     
-    
-    
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGIN]) {
-        MJLoginViewController *loginVC = [[MJLoginViewController alloc] init];
-        UINavigationController *logNC  = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:logNC animated:NO completion:nil];
-    }else{
-        //check login up
-        [MJUpdateUserInfo updateInfo];
-    }
-    
-    //科大讯飞
-    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@", @"5a2e27ba"];
-    [IFlySpeechUtility createUtility:initString];
     return YES;
 }
 

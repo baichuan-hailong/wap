@@ -41,6 +41,8 @@
 #import "CheckNetManage.h"
 #import "FMDB_Manager.h"
 #import "Token_Manager.h"
+#import "UM_Manager.h"
+#import "GuidePageManager.h"
 
 //third
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -49,6 +51,8 @@
 #import <iflyMSC/iflyMSC.h>
 #import "PcmPlayer.h"
 #import "TTSConfig.h"
+#import <UMMobClick/MobClick.h>
+
 
 //category
 #import "UIColor+UIColor_Util.h"
@@ -61,5 +65,6 @@
 #import "MJHeader_tableView.h"
 #import "MJSuccessfulPopView.h"
 #import "MJFailedPopView.h"
+#import "MJGuidePage.h"
 
 #endif /* PrefixHeader_pch */

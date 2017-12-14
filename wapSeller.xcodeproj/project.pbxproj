@@ -58,6 +58,7 @@
 		E66B854F1FCC1F9600BF9572 /* MJMerchantsInfoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E66B854E1FCC1F9600BF9572 /* MJMerchantsInfoDetailView.m */; };
 		E676E6231FD0FC0100B70AB2 /* MJMyActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E676E6221FD0FC0100B70AB2 /* MJMyActivityDetailView.m */; };
 		E676E6261FD14E5400B70AB2 /* MJUpdateUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E676E6251FD14E5400B70AB2 /* MJUpdateUserInfo.m */; };
+		E68886E31FE20C2E0014FB4E /* UM_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E68886E21FE20C2E0014FB4E /* UM_Manager.m */; };
 		E69FCEC11FD4FF460081DEF3 /* FMDB_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC01FD4FF460081DEF3 /* FMDB_Manager.m */; };
 		E69FCEC41FD524680081DEF3 /* Token_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC31FD524680081DEF3 /* Token_Manager.m */; };
 		E69FCEC71FD5470F0081DEF3 /* MJCamerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC61FD5470F0081DEF3 /* MJCamerAlertView.m */; };
@@ -94,6 +95,8 @@
 		E6BFB7B11FCFF45000008EE2 /* NSString+mj.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB7B01FCFF45000008EE2 /* NSString+mj.m */; };
 		E6BFB7B41FD007DA00008EE2 /* NSDictionary+mj.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB7B31FD007DA00008EE2 /* NSDictionary+mj.m */; };
 		E6BFB7B71FD0196B00008EE2 /* Tool_MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB7B61FD0196B00008EE2 /* Tool_MJ.m */; };
+		E6C4E9B41FE25A7400E73860 /* MJGuidePage.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C4E9B31FE25A7400E73860 /* MJGuidePage.m */; };
+		E6C4E9B71FE25F3000E73860 /* GuidePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C4E9B61FE25F3000E73860 /* GuidePageManager.m */; };
 		E6CA9A131FCC4715008F9AE3 /* MJEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CA9A121FCC4715008F9AE3 /* MJEncryption.m */; };
 		E6EB5B5D1FDE612B00D17AEC /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EB5B5C1FDE612B00D17AEC /* iflyMSC.framework */; };
 		E6EB5B5F1FDE618E00D17AEC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EB5B5E1FDE618E00D17AEC /* AVFoundation.framework */; };
@@ -232,6 +235,8 @@
 		E676E6221FD0FC0100B70AB2 /* MJMyActivityDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJMyActivityDetailView.m; sourceTree = "<group>"; };
 		E676E6241FD14E5400B70AB2 /* MJUpdateUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJUpdateUserInfo.h; sourceTree = "<group>"; };
 		E676E6251FD14E5400B70AB2 /* MJUpdateUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJUpdateUserInfo.m; sourceTree = "<group>"; };
+		E68886E11FE20C2E0014FB4E /* UM_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UM_Manager.h; sourceTree = "<group>"; };
+		E68886E21FE20C2E0014FB4E /* UM_Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UM_Manager.m; sourceTree = "<group>"; };
 		E69FCEBF1FD4FF460081DEF3 /* FMDB_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDB_Manager.h; sourceTree = "<group>"; };
 		E69FCEC01FD4FF460081DEF3 /* FMDB_Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDB_Manager.m; sourceTree = "<group>"; };
 		E69FCEC21FD524680081DEF3 /* Token_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token_Manager.h; sourceTree = "<group>"; };
@@ -290,6 +295,10 @@
 		E6BFB7B31FD007DA00008EE2 /* NSDictionary+mj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+mj.m"; sourceTree = "<group>"; };
 		E6BFB7B51FD0196B00008EE2 /* Tool_MJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool_MJ.h; sourceTree = "<group>"; };
 		E6BFB7B61FD0196B00008EE2 /* Tool_MJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tool_MJ.m; sourceTree = "<group>"; };
+		E6C4E9B21FE25A7400E73860 /* MJGuidePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJGuidePage.h; sourceTree = "<group>"; };
+		E6C4E9B31FE25A7400E73860 /* MJGuidePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJGuidePage.m; sourceTree = "<group>"; };
+		E6C4E9B51FE25F3000E73860 /* GuidePageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuidePageManager.h; sourceTree = "<group>"; };
+		E6C4E9B61FE25F3000E73860 /* GuidePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuidePageManager.m; sourceTree = "<group>"; };
 		E6CA9A111FCC4715008F9AE3 /* MJEncryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJEncryption.h; sourceTree = "<group>"; };
 		E6CA9A121FCC4715008F9AE3 /* MJEncryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJEncryption.m; sourceTree = "<group>"; };
 		E6EB5B5C1FDE612B00D17AEC /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
@@ -524,6 +533,10 @@
 				E69FCEC01FD4FF460081DEF3 /* FMDB_Manager.m */,
 				E69FCEC21FD524680081DEF3 /* Token_Manager.h */,
 				E69FCEC31FD524680081DEF3 /* Token_Manager.m */,
+				E68886E11FE20C2E0014FB4E /* UM_Manager.h */,
+				E68886E21FE20C2E0014FB4E /* UM_Manager.m */,
+				E6C4E9B51FE25F3000E73860 /* GuidePageManager.h */,
+				E6C4E9B61FE25F3000E73860 /* GuidePageManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -721,6 +734,8 @@
 				E66B85421FCBEAF300BF9572 /* MJSelectTableViewCell.m */,
 				E66B85441FCBEC6100BF9572 /* MJSelect_footer_tableView.h */,
 				E66B85451FCBEC6100BF9572 /* MJSelect_footer_tableView.m */,
+				E6C4E9B21FE25A7400E73860 /* MJGuidePage.h */,
+				E6C4E9B31FE25A7400E73860 /* MJGuidePage.m */,
 			);
 			path = loginView;
 			sourceTree = "<group>";
@@ -967,9 +982,11 @@
 			files = (
 				E623F98E1FC96836001A5AB3 /* MJPayViewController.m in Sources */,
 				E6EB5B6B1FDE680F00D17AEC /* PcmPlayer.m in Sources */,
+				E6C4E9B41FE25A7400E73860 /* MJGuidePage.m in Sources */,
 				E65682311FCA508D0018CAFC /* MJBtnManager.m in Sources */,
 				E605FCFD1FCD327D00868A21 /* MJAllTableViewCell.m in Sources */,
 				E6BFB77B1FCEAD8500008EE2 /* MJFailedPopView.m in Sources */,
+				E68886E31FE20C2E0014FB4E /* UM_Manager.m in Sources */,
 				E66B85491FCC024100BF9572 /* MJPayView.m in Sources */,
 				E66B853D1FCB9F4200BF9572 /* MJActivityDetailViewController.m in Sources */,
 				E642E0441FC7EBFB008644DA /* MJMyActivityViewController.m in Sources */,
@@ -1024,6 +1041,7 @@
 				E642E03E1FC7E441008644DA /* MJBaseViewController.m in Sources */,
 				E66B854C1FCC152300BF9572 /* MJBillDetailView.m in Sources */,
 				E628CFCD1FC6C18E00515345 /* main.m in Sources */,
+				E6C4E9B71FE25F3000E73860 /* GuidePageManager.m in Sources */,
 				E605FD031FCD62E200868A21 /* MJSettingViewController.m in Sources */,
 				E66B85371FCABC9800BF9572 /* MJLoginView.m in Sources */,
 				E66B85401FCBA3E000BF9572 /* MJTxFieldManager.m in Sources */,

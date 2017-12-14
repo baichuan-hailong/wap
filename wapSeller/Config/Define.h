@@ -38,6 +38,7 @@
 
 //VERSION
 #define VERSION_MJ           @"1.0"
+#define IS_First             @"is_login_mjyg"    //是否登录
 
 //User INFO
 #define IS_LOGIN             @"is_login_mjyg"    //是否登录
@@ -57,6 +58,11 @@
 //JPUSH AppKey
 #define JPushAppKey           @"3e26e3867227f1dc272ad9c2"
 #define JPregistrationId      @"jp_registrationId"
+
+//MU
+#define UMAppKey              @"5a31d0768f4a9d5cc100018b" //dev
+//#define UMAppKey            @"5a31d134f43e4823610000c1" //dev
+
 
 //*** 屏幕尺寸 ***//
 #define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)

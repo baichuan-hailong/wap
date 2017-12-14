@@ -13,6 +13,10 @@
 + (void)updateInfo{
     NSString *user_id    =  [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:UserID]];
     if (![user_id isNull]) {
+        
+        //um 账号统计
+        [UM_Manager profileSignInWithPUID:user_id];
+        
         NSDictionary *data   = @{@"oid":user_id};
         NSDictionary *pradic = [data signWithSecurityKey];
         NSString *testurl    = [NSString stringWithFormat:@"%@/client/getById",API];
@@ -25,10 +29,7 @@
                 //0-1-2 升级状态 未-成功-失败
                 NSString *sellerAuditResult = [NSString stringWithFormat:@"%@",object[@"data"][@"sellerAuditResult"]];
                 [[NSUserDefaults standardUserDefaults] setObject:sellerAuditResult forKey:Seller_AuditResult];
-                
-                [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"updateuserinfo" object:object[@"data"]];
-                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"updateuserinfo" object:object[@"data"]];
                 [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@",object[@"data"][@"sellerAuditResult"]] forKey:Seller_AuditResult];
                 
                 if (![[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGIN]) {

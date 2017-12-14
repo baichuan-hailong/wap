@@ -22,10 +22,7 @@
     return gp_manager;
 }
 
-
 - (void)checkGuidPage{
-    
-    
     //login
     if (![[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGIN]) {
         MJLoginViewController *loginVC = [[MJLoginViewController alloc] init];
@@ -35,7 +32,6 @@
         //check login up
         [MJUpdateUserInfo updateInfo];
     }
-    
     
     //page
     if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@",IS_First,VERSION_MJ]]) {
@@ -49,7 +45,6 @@
     }
 }
 
-
 - (void)startBtnClicked:(UIButton *)sender{
     NSLog(@"click");
     [UIView animateWithDuration:0.18 animations:^{
@@ -58,7 +53,6 @@
         [self.guidePage removeFromSuperview];
     }];
 }
-
 
 //lazy
 - (MJGuidePage *)guidePage{

@@ -34,7 +34,6 @@
     
     //self.headerView.backgroundColor = [UIColor orangeColor];
     [self addSubview:self.headerView];
-    //self.searchTableView.tableHeaderView = self.headerView;
     
     //order
     [self.headerView addSubview:self.orderIDView];
@@ -93,6 +92,7 @@
     
     self.searchTableView.backgroundColor = [UIColor colorWithRed:240/255.0  green:241/255.0  blue:247/255.0 alpha:1];
     self.searchTableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
+    //self.searchTableView.backgroundColor = [UIColor redColor];
     [self addSubview:self.searchTableView];
     
     /*********************Data Picker**************************/
@@ -119,6 +119,19 @@
     self.sureBtn.titleLabel.font    = [UIFont systemFontOfSize:SCREEN_WIDTH/375*14];
     
 }
+
+//header view
+- (UIView *)headerView{
+    if (_headerView==nil) {
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, em*420)];
+        if (iPhoneX) {
+            //_headerView.frame = CGRectMake(0, 64+24, SCREEN_WIDTH, em*420);
+        }
+    }
+    return _headerView;
+}
+
+
 
 - (UIView *)orderIDView{
     if (_orderIDView==nil) {
@@ -212,13 +225,6 @@
 }
 
 
-//header view
-- (UIView *)headerView{
-    if (_headerView==nil) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, em*420)];
-    }
-    return _headerView;
-}
 
 
 
@@ -227,7 +233,7 @@
     if (_searchTableView==nil){
         _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame), SCREEN_WIDTH, SCREEN_HEIGHT-64-CGRectGetMaxY(self.headerView.frame))];
         if (iPhoneX) {
-            _searchTableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64-24-CGRectGetMaxY(self.headerView.frame));
+            _searchTableView.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), SCREEN_WIDTH, SCREEN_HEIGHT-64-24-CGRectGetMaxY(self.headerView.frame));
         }
     }
     return _searchTableView;

@@ -137,26 +137,12 @@
                     if ([isSeller isEqualToString:@"1"]) {
                         if ([sellerAuditResult isEqualToString:@"0"]) {
                             //0 未升级（已提交资料）--- 审核中ji
-                            //已经提交审核
+                            //已经提交审核 
                             
                             MJUpWaitingViewController *upWairing = [[MJUpWaitingViewController alloc] init];
                             upWairing.isSuccessful = YES;
                             UINavigationController *upWaitingNV = [[UINavigationController alloc] initWithRootViewController:upWairing];
                             [self presentViewController:upWaitingNV animated:NO completion:nil];
-                            
-                            /**
-                             if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_HaveUPCommit]) {
-                             
-                             }else{
-                             MJUpgradeMerchantViewController *upgradeMerchantVC = [[MJUpgradeMerchantViewController alloc] init];
-                             NSString *oid = [NSString stringWithFormat:@"%@",object[@"data"][@"oid"]];
-                             NSString *promoterId = [NSString stringWithFormat:@"%@",object[@"data"][@"promoterId"]];
-                             upgradeMerchantVC.login_tel = self.loginView.telTextField.text;
-                             upgradeMerchantVC.oid = oid;
-                             upgradeMerchantVC.promoterId = promoterId;
-                             [self.navigationController pushViewController:upgradeMerchantVC animated:YES];
-                             }
-                             **/
                             
                         }else if ([sellerAuditResult isEqualToString:@"1"]){
                             //1 升级成功

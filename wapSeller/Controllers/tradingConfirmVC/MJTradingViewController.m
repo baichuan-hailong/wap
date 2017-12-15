@@ -98,8 +98,8 @@
     [self.tradingView.waitBtn addTarget:self action:@selector(waitBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.tradingView.sureBtn addTarget:self action:@selector(sureBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.tradingView.allBtn addTarget:self action:@selector(allBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *setitem              = [[UIBarButtonItem alloc]initWithCustomView:self.tradingView.setBtn];
-    self.navigationItem.leftBarButtonItem = setitem;
+    //UIBarButtonItem *setitem              = [[UIBarButtonItem alloc]initWithCustomView:self.tradingView.setBtn];
+    //self.navigationItem.leftBarButtonItem = setitem;
     UIBarButtonItem *rightitem            = [[UIBarButtonItem alloc]initWithCustomView:self.tradingView.searchBtn];
     self.navigationItem.rightBarButtonItem = rightitem;
     [self.tradingView.setBtn addTarget:self action:@selector(setBtnClick:) forControlEvents:UIControlEventTouchUpInside];

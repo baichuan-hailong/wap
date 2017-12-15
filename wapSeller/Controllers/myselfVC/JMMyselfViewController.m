@@ -175,16 +175,16 @@
     }
     switch (indexPath.section) {
         case 0:
-            cell.line_view.alpha = 0.8;
+            cell.line_view.alpha = 1;
             break;
         case 1:
             cell.line_view.alpha = 0;
             break;
         case 2:
-            cell.line_view.alpha = 0.8;
+            cell.line_view.alpha = 1;
             break;
         default:
-            cell.line_view.alpha = 0.8;
+            cell.line_view.alpha = 1;
             break;
     }
     [cell setMysel:myArray[indexPath.section]];

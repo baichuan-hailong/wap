@@ -194,9 +194,9 @@
     
     //服务费
     self.serviceTipLable.text = @"服务费：";
-    NSString *financialReceive = [NSString stringWithFormat:@"%@",activityDic[@"financialReceive"]];
+    NSString *shopReceive = [NSString stringWithFormat:@"%@",activityDic[@"shopReceive"]];//shopReceive financialReceive
     NSString *orderRebatePrices = [NSString stringWithFormat:@"%@",activityDic[@"orderRebatePrices"]];
-    self.serviceLable.text = [NSString stringWithFormat:@"%.2f元",[financialReceive floatValue]-[orderRebatePrices floatValue]];
+    self.serviceLable.text = [NSString stringWithFormat:@"%.2f元",[shopReceive floatValue]-[orderRebatePrices floatValue]];
 }
 
 #pragma mark - 时间戳转换为标准时间

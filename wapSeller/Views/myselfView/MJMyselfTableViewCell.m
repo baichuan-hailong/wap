@@ -49,7 +49,7 @@
         
         
         self.line_view.backgroundColor = [UIColor colorWithRed:223/255.0 green:224/255.0 blue:236/255.0 alpha:0.8];
-        self.line_view.alpha = 0.6;
+        self.line_view.alpha = 1;
         [self.contentView addSubview:self.line_view];
         
         [self.contentView addSubview:self.arrowImageView];
@@ -92,7 +92,7 @@
 
 - (UIView *)line_view{
     if (_line_view==nil) {
-        _line_view = [[UIView alloc] initWithFrame:CGRectMake(em*114, em*180-1, SCREEN_WIDTH-em*114, 1)];
+        _line_view = [[UIView alloc] initWithFrame:CGRectMake(em*114, em*180-1, SCREEN_WIDTH-em*114, 0.5)];
     }
     return _line_view;
 }

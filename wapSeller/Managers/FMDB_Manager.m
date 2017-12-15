@@ -31,7 +31,7 @@
     self.db = [FMDatabase databaseWithPath:dbPath];
     //creat table
     if ([self.db open]) {
-        BOOL res = [self.db executeUpdate:@"CREATE TABLE activitylist_table(activityName text,onlineStatus text,buyerBackRate text,activityStartDate text,activityEndDate text,orderPrices text,financialReceive text)"];
+        BOOL res = [self.db executeUpdate:@"CREATE TABLE activitylist_table(activityName text,onlineStatus text,buyerBackRate text,activityStartDate text,activityEndDate text,orderPrices text,shopReceive text,orderRebatePrices text)"];
         if (res) {
             //successfull
             //NSLog(@"creat table successful");
@@ -50,10 +50,13 @@
     NSString *activityStartDate = [NSString stringWithFormat:@"%@",activityDic[@"activityStartDate"]];
     NSString *activityEndDate   = [NSString stringWithFormat:@"%@",activityDic[@"activityEndDate"]];
     NSString *orderPrices = [NSString stringWithFormat:@"%@",activityDic[@"orderPrices"]];
-    NSString *financialReceive = [NSString stringWithFormat:@"%@",activityDic[@"financialReceive"]];
+    NSString *shopReceive = [NSString stringWithFormat:@"%@",activityDic[@"shopReceive"]];//shopReceive  financialReceive
+    
+    NSString *orderRebatePrices = [NSString stringWithFormat:@"%@",activityDic[@"orderRebatePrices"]];
+    
     //insert
     if ([self.db open]) {
-        BOOL res = [self.db executeUpdate:@"INSERT INTO activitylist_table(activityName,onlineStatus,buyerBackRate,activityStartDate,activityEndDate,orderPrices,financialReceive) VALUES (?,?,?,?,?,?,?)",activityName,onlineStatus,buyerBackRate,activityStartDate,activityEndDate,orderPrices,financialReceive];
+        BOOL res = [self.db executeUpdate:@"INSERT INTO activitylist_table(activityName,onlineStatus,buyerBackRate,activityStartDate,activityEndDate,orderPrices,shopReceive,orderRebatePrices) VALUES (?,?,?,?,?,?,?,?)",activityName,onlineStatus,buyerBackRate,activityStartDate,activityEndDate,orderPrices,shopReceive,orderRebatePrices];
         if (res) {
             //NSLog(@"insert successful");
         }else{
@@ -93,8 +96,11 @@
             NSString *activityStartDate = [rset stringForColumn:@"activityStartDate"];
             NSString *activityEndDate = [rset stringForColumn:@"activityEndDate"];
             NSString *orderPrices = [rset stringForColumn:@"orderPrices"];
-            NSString *financialReceive = [rset stringForColumn:@"financialReceive"];
-            dic = @{@"activityName":activityName,@"onlineStatus":onlineStatus,@"buyerBackRate":buyerBackRate,@"activityStartDate":activityStartDate,@"activityEndDate":activityEndDate,@"orderPrices":orderPrices,@"financialReceive":financialReceive};
+            NSString *shopReceive = [rset stringForColumn:@"shopReceive"];
+            
+            NSString *orderRebatePrices = [rset stringForColumn:@"orderRebatePrices"];
+            
+            dic = @{@"activityName":activityName,@"onlineStatus":onlineStatus,@"buyerBackRate":buyerBackRate,@"activityStartDate":activityStartDate,@"activityEndDate":activityEndDate,@"orderPrices":orderPrices,@"shopReceive":shopReceive,@"orderRebatePrices":orderRebatePrices};
             [mutableArray addObject:dic];
         }
         //NSLog(@"mutableArray --- %@",mutableArray);

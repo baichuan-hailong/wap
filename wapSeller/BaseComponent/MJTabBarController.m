@@ -21,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //self.tabBar.clipsToBounds = YES;
+    [self changeLineOfTabbarColor];
     
     MJMyActivityViewController *activity = [[MJMyActivityViewController alloc] init];
     activity.title = @"1";
@@ -58,13 +60,27 @@
     childNC.tabBarItem.title = title;
     childNC.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     childNC.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //[childNC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10],NSForegroundColorAttributeName:[UIColor lightGrayColor]} forState:UIControlStateNormal];
     [childNC.tabBarItem setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10],NSForegroundColorAttributeName:[UIColor colorWithHex:primaryColor]} forState:UIControlStateSelected];
+    [childNC.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -2)];
     
     
     
     [self addChildViewController:childNC];
 }
 
+
+- (void)changeLineOfTabbarColor {
+    CGRect rect = CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, 0.65);
+    UIGraphicsBeginImageContextWithOptions(rect.size,NO, 0);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:153/255.0 green:153/255.0 blue:169/255.0 alpha:0.3].CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.tabBar setShadowImage:image];
+    [self.tabBar setBackgroundImage:[UIImage new]];
+}
 
 
 
@@ -73,14 +89,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -103,7 +103,10 @@
         [self.contentView addSubview:self.moneytipLabel];
         
         //line
+        self.lineImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.line_lowImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:self.lineImageView];
+        //self.lineImageView.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:self.line_lowImageView];
         
         //交易数量
@@ -260,7 +263,7 @@
     
     //卖家扣款
     self.seller_deducTipLabel.text = @"卖家扣款";
-    NSString *financialReceive = [NSString stringWithFormat:@"%@",waitDic[@"financialReceive"]];
+    NSString *financialReceive = [NSString stringWithFormat:@"%@",waitDic[@"shopReceive"]];
     self.seller_deducLabel.text = [NSString stringWithFormat:@"%.2f元",[financialReceive floatValue]];
     
     //交易时间
@@ -330,7 +333,7 @@
 //dottedline_image
 - (UIImageView *)lineImageView{
     if (_lineImageView == nil) {
-        _lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(em*92, CGRectGetMaxY(self.titleLabel.frame)+em*235, SCREEN_WIDTH-em*184, 1)];
+        _lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(em*92, CGRectGetMaxY(self.titleLabel.frame)+em*235, SCREEN_WIDTH-em*184, 0.6)];
         _lineImageView.image = [UIImage imageNamed:@"dottedline_image"];
     }
     return _lineImageView;
@@ -338,7 +341,7 @@
 
 - (UIImageView *)line_lowImageView{
     if (_line_lowImageView == nil) {
-        _line_lowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(em*92, CGRectGetMaxY(self.lineImageView.frame)+em*275, SCREEN_WIDTH-em*184, 1)];
+        _line_lowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(em*92, CGRectGetMaxY(self.lineImageView.frame)+em*275, SCREEN_WIDTH-em*184, 0.6)];
         _line_lowImageView.image = [UIImage imageNamed:@"dottedline_image"];
     }
     return _line_lowImageView;

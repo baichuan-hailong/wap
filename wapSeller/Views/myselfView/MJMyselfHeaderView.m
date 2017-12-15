@@ -208,6 +208,13 @@
         }else{
             self.CreditLabel.text    = [NSString stringWithFormat:@"%.2f",[creditMoneyCanUse floatValue]];
         }
+        
+        //self.AccountLabel.backgroundColor = [UIColor yellowColor];
+        [self.AccountLabel sizeToFit];
+        
+        self.CreditTipLabel.frame = CGRectMake(CGRectGetMaxX(self.AccountLabel.frame)+em*40, em*305, em*195, em*40);
+        self.CreditLabel.frame = CGRectMake(CGRectGetMaxX(self.CreditTipLabel.frame)+em*1, em*305, SCREEN_WIDTH-CGRectGetMaxX(self.CreditTipLabel.frame)-em*50, em*40);
+        //self.CreditLabel.backgroundColor  = [UIColor yellowColor];
     }
 }
 

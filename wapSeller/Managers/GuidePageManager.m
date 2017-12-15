@@ -36,7 +36,6 @@
     //page
     if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@",IS_First,VERSION_MJ]]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"%@%@",IS_First,VERSION_MJ]];
-        //self.guidePage = [[MJGuidePage alloc] initWithFrame:SCREEN_BOUNDS];
         [self.guidePage.startBtn addTarget:self
                                     action:@selector(startBtnClicked:)
                           forControlEvents:UIControlEventTouchUpInside];

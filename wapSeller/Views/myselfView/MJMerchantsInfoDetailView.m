@@ -253,9 +253,9 @@
 
 - (UIView *)line_view{
     if (_line_view==nil) {
-        _line_view = [[UIView alloc] initWithFrame:CGRectMake(em*35, CGRectGetMaxY(self.nameLabel.frame)+em*72, SCREEN_WIDTH-em*35, 1)];
+        _line_view = [[UIView alloc] initWithFrame:CGRectMake(em*35, CGRectGetMaxY(self.nameLabel.frame)+em*72, SCREEN_WIDTH-em*35, 0.5)];
         _line_view.backgroundColor = [UIColor colorWithRed:223/255.0 green:224/255.0 blue:236/255.0 alpha:1];
-        _line_view.alpha = 0.6;
+        _line_view.alpha = 1;
     }
     return _line_view;
 }

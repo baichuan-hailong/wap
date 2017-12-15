@@ -22,7 +22,11 @@
     // Do any additional setup after loading the view.
     
     //self.tabBar.clipsToBounds = YES;
-    [self changeLineOfTabbarColor];
+    if (!iPhoneX) {
+        [self changeLineOfTabbarColor];
+    }
+    
+    
     
     MJMyActivityViewController *activity = [[MJMyActivityViewController alloc] init];
     activity.title = @"1";

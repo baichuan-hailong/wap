@@ -53,6 +53,7 @@
     self.searchView.moneyTextField.returnKeyType = UIReturnKeySearch;
     self.searchView.moneyTextField.delegate = self;
     
+    [self.searchView.myDatePicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchaction) name:@"" object:nil];
 }
 
@@ -68,6 +69,11 @@
     return YES;
 }
 
+- (void)dateChanged{
+    [self sureBtnClick:nil];
+}
+
+
 #pragma mark - cancle & suer
 - (void)cancleBtnClick:(UIButton *)sender{
     [UIView animateWithDuration:0.28 animations:^{
@@ -79,6 +85,8 @@
 }
 
 - (void)sureBtnClick:(UIButton *)sender{
+
+    
     [self cancleBtnClick:nil];
     NSString *change = [self changeFormat:self.searchView.myDatePicker.date];
     NSString *timeStamp = [self timestamp:self.searchView.myDatePicker.date];
@@ -88,6 +96,8 @@
     }else{
         self.searchView.rightDateTextfield.text = change;
     }
+    
+    [self searchSource];
 }
 
 
@@ -258,12 +268,8 @@
                    @"orderPrices":self.searchView.moneyTextField.text};
     }
     
-    
-    
-    
     //NSLog(@"data --- %@",data);
     //self.searchView.orderIDTextField.text = @"";
-    
     NSDictionary *pradic = [data signWithSecurityKey];
     NSString *testurl    = [NSString stringWithFormat:@"%@/activityorder/listBy",API];
     //NSLog(@"search --- %@",pradic);
@@ -273,7 +279,7 @@
         if ([status isEqualToString:@"1000"]) {
             searchArray =  [NSMutableArray arrayWithArray:object[@"data"]];
             if (searchArray.count==0) {
-                [ProgressHUD_Manager showTo:self.view tipText:@"未搜到结果相关交易～"];
+                [ProgressHUD_Manager showTo:self.view tipText:@"没有搜到内容哦～"];
             }
             [self.searchView.searchTableView reloadData];
         }else{

@@ -49,7 +49,7 @@
    
     isHaveSelectImageBool = NO;
     self.upgradeMerchantView.accountTextField.text =  [[NSUserDefaults standardUserDefaults] stringForKey:LoginTel];
-    if (self.promoterId.length>0) {
+    if ([self.promoterId integerValue]!=0) {
         self.upgradeMerchantView.inviteCoderTextField.text = self.promoterId;
         self.upgradeMerchantView.inviteCoderTextField.userInteractionEnabled = NO;
     }
@@ -195,7 +195,7 @@
         ![self.upgradeMerchantView.boothTextField.text isNull]&&
         ![self.upgradeMerchantView.connectPersonTextField.text isNull]&&
         ![self.upgradeMerchantView.connectTelTextField.text isNull]&&
-        ![self.upgradeMerchantView.inviteCoderTextField.text isNull]) {
+        ![self.upgradeMerchantView.inviteCoderTextField.text isNull]&&![self.upgradeMerchantView.inviteCoderTextField.text isEqualToString:@"0"]) {
         [self prefectSeller];
     }else{
         [ProgressHUD_Manager showTo:self.view tipText:@"请填写完整资料信息"];
@@ -212,7 +212,8 @@
                            @"clientName":self.upgradeMerchantView.shopTextField.text,
                            @"linkman":self.upgradeMerchantView.connectPersonTextField.text,
                            @"telephone":self.upgradeMerchantView.connectTelTextField.text,
-                           @"sellerStallInfo":self.upgradeMerchantView.boothTextField.text};
+                           @"sellerStallInfo":self.upgradeMerchantView.boothTextField.text,
+                           @"promoterId":self.upgradeMerchantView.inviteCoderTextField.text};
     
     //店铺名
     [[NSUserDefaults standardUserDefaults] setObject:self.upgradeMerchantView.shopTextField.text forKey:@"clientName_up"];

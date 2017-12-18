@@ -64,6 +64,9 @@
                             font:[UIFont systemFontOfSize:em*38]];
         [self.contentView addSubview:self.stateLable];
         
+        //self.titleLabel.backgroundColor = [UIColor redColor];
+        //self.stateLable.backgroundColor = [UIColor orangeColor];
+        
         [MJLabelManager setLabel:self.cashBackLable
                             text:@"-"
                                r:249
@@ -150,14 +153,49 @@
     self.logoImageView.image = [UIImage imageNamed:@"merchant_image"];
     self.titleLabel.text = [NSString stringWithFormat:@"%@",activityDic[@"activityName"]];
     
-    NSString *onlineStatus = [NSString stringWithFormat:@"%@",activityDic[@"onlineStatus"]];
-    if ([onlineStatus isEqualToString:@"上架"]) {
-        self.stateLable.text = @"有效";
-        self.stateLable.textColor = [UIColor colorWithRed:62/255.0 green:184/255.0 blue:46/255.0 alpha:1];
-    }else{
-        self.stateLable.text = @"无效";
-        self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+    
+    NSString *shopActivityStatus = [NSString stringWithFormat:@"%@",activityDic[@"shopActivityStatus"]];
+    NSInteger shopActivity_int = [shopActivityStatus integerValue];
+    switch (shopActivity_int) {
+        case -1:
+            self.stateLable.text = @"已删除";
+            self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+            break;
+        case 0:
+            self.stateLable.text = @"有效";
+            self.stateLable.textColor = [UIColor colorWithRed:62/255.0 green:184/255.0 blue:46/255.0 alpha:1];
+            break;
+        case 1:
+            self.stateLable.text = @"无效";
+            self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+            break;
+        case 2:
+            self.stateLable.text = @"已下架";
+            self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+            break;
+        case 3:
+            self.stateLable.text = @"未开始";
+            self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+            break;
+        case 4:
+            self.stateLable.text = @"已结束";
+            self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+            break;
+            
+        default:
+            break;
     }
+    
+    /**
+     NSString *onlineStatus = [NSString stringWithFormat:@"%@",activityDic[@"onlineStatus"]];
+     if ([shopActivityStatus isEqualToString:@"上架"]) {
+     self.stateLable.text = @"有效";
+     self.stateLable.textColor = [UIColor colorWithRed:62/255.0 green:184/255.0 blue:46/255.0 alpha:1];
+     }else{
+     self.stateLable.text = @"无效";
+     self.stateLable.textColor = [UIColor colorWithRed:196/255.0 green:196/255.0 blue:196/255.0 alpha:1];
+     }
+     **/
     
     //按金额 按交易量
     NSString *deductStyle = [NSString stringWithFormat:@"%@",activityDic[@"deductStyle"]];
@@ -219,14 +257,14 @@
 
 - (UILabel *)titleLabel{
     if (_titleLabel==nil) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.logoImageView.frame)+em*26, em*50, SCREEN_WIDTH-em*300, em*62)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.logoImageView.frame)+em*26, em*50, SCREEN_WIDTH-em*320, em*62)];
     }
     return _titleLabel;
 }
 
 - (UILabel *)stateLable{
     if (_stateLable==nil) {
-        _stateLable = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-em*33-em*100, em*60, em*100, em*37)];
+        _stateLable = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-em*33-em*150, em*60, em*150, em*37)];
     }
     return _stateLable;
 }

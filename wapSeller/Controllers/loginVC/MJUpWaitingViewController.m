@@ -140,6 +140,13 @@
                 }else{
                     //2 升级失败
                     //审核失败
+                    NSString *remark = [NSString stringWithFormat:@"%@",object[@"data"][@"remark"]];
+                    if (![remark isNull]) {
+                       self.upWaitingView.reasonLabel.text = [NSString stringWithFormat:@"原因：%@",object[@"data"][@"remark"]];
+                    }else{
+                        self.upWaitingView.reasonLabel.text = @"";
+                    }
+                    
                     [self.upWaitingView upView:NO];
                 }
                 [[NSNotificationCenter defaultCenter]

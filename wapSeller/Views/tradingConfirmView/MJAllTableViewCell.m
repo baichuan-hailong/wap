@@ -226,8 +226,10 @@
     
     if (isSureBool) {
         self.awardImageView.image = [UIImage imageNamed:@"award_sure_image"];
+        self.moneyLabel.textColor = [UIColor colorWithHex:@"f91e1e"];
     }else{
         self.awardImageView.image = [UIImage imageNamed:@"award_depeat_image"];
+        self.moneyLabel.textColor = [UIColor colorWithHex:@"aaabbd"];
     }
     
     self.titleLabel.text     = [NSString stringWithFormat:@"%@",waitDic[@"activityName"]];

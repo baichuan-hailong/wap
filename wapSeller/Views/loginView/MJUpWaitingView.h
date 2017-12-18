@@ -10,5 +10,6 @@
 
 @interface MJUpWaitingView : UIView
 @property(nonatomic,strong)UIButton  *resetUpBtn;
+@property(nonatomic,strong)UILabel   *reasonLabel;
 - (void)upView:(BOOL)isSuccessful;
 @end

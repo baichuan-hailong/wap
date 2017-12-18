@@ -38,7 +38,7 @@
     //order
     [self.headerView addSubview:self.orderIDView];
     [MJTxFieldManager setTxfield:self.orderIDTextField
-                       placeText:@"搜索订单号"
+                       placeText:@"搜索交易编号"
                        textColor:[UIColor colorWithHex:@"404047"]
                             font:[UIFont systemFontOfSize:em*38]];
     //self.orderIDTextField.keyboardType = UIKeyboardTypeNumberPad;

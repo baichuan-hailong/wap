@@ -13,7 +13,7 @@
 
 @property(nonatomic,strong)UIImageView *stateImageView;
 @property(nonatomic,strong)UILabel     *stateLabel;
-@property(nonatomic,strong)UILabel     *reasonLabel;
+
 @end
 
 @implementation MJUpWaitingView
@@ -39,7 +39,7 @@
     [self.up_scrollView addSubview:self.stateLabel];
     
     [MJLabelManager setLabel:self.reasonLabel
-                        text:@"原因：账号错误"
+                        text:@"原因：---"
                    textColor:[UIColor colorWithHex:@"3371fc"]
                textAlignment:NSTextAlignmentCenter
                         font:[UIFont systemFontOfSize:em*48]];
@@ -97,7 +97,7 @@
 
 - (UILabel *)reasonLabel{
     if (_reasonLabel==nil) {
-        _reasonLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.stateLabel.frame)+em*60, SCREEN_WIDTH, em*45)];
+        _reasonLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.stateLabel.frame)+em*60, SCREEN_WIDTH-40, em*45)];
     }
     return _reasonLabel;
 }

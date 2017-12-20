@@ -10,7 +10,7 @@
 #import "MJPayView.h"
 
 
-@interface MJPayViewController ()
+@interface MJPayViewController ()<UITextFieldDelegate>
 {
     BOOL isWechatPayBool;
 }
@@ -46,6 +46,7 @@
     
     [self.payView.commitBtn addTarget:self action:@selector(commitBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     
+    self.payView.moneyTextField.delegate = self;
     [self.payView.moneyTextField addTarget:self action:@selector(textField1TextChange:) forControlEvents:UIControlEventEditingChanged];
     
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction:)];
@@ -65,10 +66,33 @@
     if (self.payView.moneyTextField.text.length>0) {
         self.payView.commitBtn.alpha = 1;
         self.payView.commitBtn.userInteractionEnabled = YES;
+        if ([self.payView.moneyTextField.text floatValue]>9999999){
+            self.payView.moneyTextField.text = @"9999999";
+        }
     }else{
         self.payView.commitBtn.alpha = 0.6;
         self.payView.commitBtn.userInteractionEnabled = NO;
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    //NSLog(@"%@",string);
+    if ([self.payView.moneyTextField.text floatValue]<0.01&&self.payView.moneyTextField.text.length>3&&string.length==1) {
+        self.payView.moneyTextField.text = @"0.01";
+        return NO;
+    }
+    
+    if([self.payView.moneyTextField.text rangeOfString:@"."].location !=NSNotFound&&string.length==1){
+        //NSLog(@"yes");
+        NSArray *array = [self.payView.moneyTextField.text componentsSeparatedByString:@"."]; //从字符A中分隔成2个元素的数组
+        NSString *floatStr = [NSString stringWithFormat:@"%@",array[1]];
+        //NSLog(@"%@",floatStr);
+        if (floatStr.length>=2) {
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 
@@ -107,19 +131,21 @@
 #pragma mark - 充值
 - (void)commitBtnDidClicked:(UIButton *)sender{
     [self.view endEditing:YES];
-    
-    NSString *money = [NSString stringWithFormat:@"%@",self.payView.moneyTextField.text];
-    if (![money isNull]&&[money floatValue]*100>=1) {
+    NSString *money = [NSString stringWithFormat:@"%.2f",[self.payView.moneyTextField.text floatValue]];
+    //NSLog(@"%f",[money floatValue]);
+    money = [money stringByReplacingOccurrencesOfString:@"." withString:@""];
+    if (![money isNull]&&[money integerValue]>=1&&[money integerValue]<=999999900) {
         [self showProgress];
         NSDictionary *data;
+        //NSLog(@"%@",money);
         if (isWechatPayBool) {
-            data   = @{@"channelId":@"WX_APP",@"amount":[NSString stringWithFormat:@"%.f",[money floatValue]*100]};
+            data   = @{@"channelId":@"WX_APP",@"amount":[NSString stringWithFormat:@"%ld",(long)[money integerValue]]};
         }else{
-            data   = @{@"channelId":@"ALIPAY_MOBILE",@"amount":[NSString stringWithFormat:@"%.f",[money floatValue]*100]};
+            data   = @{@"channelId":@"ALIPAY_MOBILE",@"amount":[NSString stringWithFormat:@"%ld",(long)[money integerValue]]};
         }
         NSDictionary *pradic = [data signWithSecurityKey];
         NSString *testurl    = [NSString stringWithFormat:@"%@/accountbill/getRechargeOrder",API];
-        
+        //NSLog(@"%@",data);
         [[MJNetManger shareManager] requestWithType:HttpRequestTypeGet withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
             NSLog(@"pay --- %@",object);
             NSString *status = [NSString stringWithFormat:@"%@",object[@"status"]];

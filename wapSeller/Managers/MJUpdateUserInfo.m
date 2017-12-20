@@ -67,4 +67,112 @@
     }
 }
 
+
+
+
+
+
+
+
++ (void)checkSysUp{
+    UIAlertController *alertDialog = [UIAlertController alertControllerWithTitle:nil
+                                                                         message:@"有新版本，前往更新？"
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去升级"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         NSLog(@"sure");
+                                                         //1326736470
+                                                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://geo.itunes.apple.com/cn/app/id1326736470"]];
+                                                     }];
+    
+    UIAlertAction *cancle  = [UIAlertAction actionWithTitle:@"取消"
+                                                      style:UIAlertActionStyleCancel
+                                                    handler:^(UIAlertAction *action) {
+                                                        NSLog(@"cancle");
+                                                    }];
+    [cancle setValue:[UIColor blackColor] forKey:@"titleTextColor"];
+    [okAction setValue:[UIColor colorWithHex:primaryColor] forKey:@"titleTextColor"];
+    
+    
+    
+    
+    
+    NSDictionary *data   = @{@"appid":@"VIP",@"appos":@"IOS",@"appversion":VERSION_MJ};
+    NSDictionary *pradic = [data signWithSecurityKey];
+    NSString *testurl    = [NSString stringWithFormat:@"%@/version/getLatestVersion",API];
+    
+    [[MJNetManger shareManager] requestWithType:HttpRequestTypeGet withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
+        //NSLog(@"sys up --- %@",object);
+        NSString *status = [NSString stringWithFormat:@"%@",object[@"status"]];
+        if ([status isEqualToString:@"1000"]) {
+            NSString *latestVersion  = [NSString stringWithFormat:@"%@",object[@"data"][@"latestVersion"]];
+            NSString *mustUpdateFlag = [NSString stringWithFormat:@"%@",object[@"data"][@"mustUpdateFlag"]];
+            if ([mustUpdateFlag integerValue]==1) {
+                //strong
+                //[alertDialog addAction:okAction];
+                //[[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertDialog animated:YES completion:nil];
+            }else{
+                if ([latestVersion floatValue]>[VERSION_MJ floatValue]) {
+                    [alertDialog addAction:cancle];
+                    [alertDialog addAction:okAction];
+                    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertDialog animated:YES completion:nil];
+                }
+            }
+        }
+    } withFailureBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+    } progress:^(float progress) {
+        NSLog(@"%f",progress);
+    }];
+}
+
+
+
++ (void)checkSysStrongUp{
+    UIAlertController *alertDialog = [UIAlertController alertControllerWithTitle:nil
+                                                                         message:@"有新版本，前往更新？"
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去升级"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         NSLog(@"sure");
+                                                         //1326736470
+                                                         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://geo.itunes.apple.com/cn/app/id1326736470"]];
+                                                     }];
+    
+    UIAlertAction *cancle  = [UIAlertAction actionWithTitle:@"取消"
+                                                      style:UIAlertActionStyleCancel
+                                                    handler:^(UIAlertAction *action) {
+                                                        NSLog(@"cancle");
+                                                    }];
+    [cancle setValue:[UIColor blackColor] forKey:@"titleTextColor"];
+    [okAction setValue:[UIColor colorWithHex:primaryColor] forKey:@"titleTextColor"];
+    
+    
+    
+    
+    
+    NSDictionary *data   = @{@"appid":@"VIP",@"appos":@"IOS",@"appversion":VERSION_MJ};
+    NSDictionary *pradic = [data signWithSecurityKey];
+    NSString *testurl    = [NSString stringWithFormat:@"%@/version/getLatestVersion",API];
+    
+    [[MJNetManger shareManager] requestWithType:HttpRequestTypeGet withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
+        NSLog(@"sys up --- %@",object);
+        NSString *status = [NSString stringWithFormat:@"%@",object[@"status"]];
+        if ([status isEqualToString:@"1000"]) {
+            NSString *mustUpdateFlag = [NSString stringWithFormat:@"%@",object[@"data"][@"mustUpdateFlag"]];
+            if ([mustUpdateFlag integerValue]==1) {
+                //strong
+                [alertDialog addAction:okAction];
+                [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertDialog animated:YES completion:nil];
+            }
+        }
+    } withFailureBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+    } progress:^(float progress) {
+        NSLog(@"%f",progress);
+    }];
+}
+
 @end

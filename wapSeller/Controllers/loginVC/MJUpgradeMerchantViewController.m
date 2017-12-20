@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"填写商家信息";
+    self.title = @"填写卖家信息";
     
     [self addActon];
     
@@ -132,7 +132,6 @@
         self.upgradeMerchantView.boothTextField.text = sellerStallInfo_up;
     }
     
-    
     //联系人
     NSString *linkman_up = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"linkman_up"]];
     if (![linkman_up isNull]) {
@@ -147,6 +146,11 @@
     NSString *inviteCoder_up = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"inviteCoder_up"]];
     if (![inviteCoder_up isNull]) {
         self.upgradeMerchantView.inviteCoderTextField.text = inviteCoder_up;
+    }
+    
+    if ([inviteCoder_up integerValue]!=0) {
+        self.upgradeMerchantView.inviteCoderTextField.text = inviteCoder_up;
+        self.upgradeMerchantView.inviteCoderTextField.userInteractionEnabled = NO;
     }
 }
 
@@ -194,8 +198,7 @@
         ![self.upgradeMerchantView.markTextField.text isNull]&&
         ![self.upgradeMerchantView.boothTextField.text isNull]&&
         ![self.upgradeMerchantView.connectPersonTextField.text isNull]&&
-        ![self.upgradeMerchantView.connectTelTextField.text isNull]&&
-        ![self.upgradeMerchantView.inviteCoderTextField.text isNull]&&![self.upgradeMerchantView.inviteCoderTextField.text isEqualToString:@"0"]) {
+        ![self.upgradeMerchantView.connectTelTextField.text isNull]) {
         [self prefectSeller];
     }else{
         [ProgressHUD_Manager showTo:self.view tipText:@"请填写完整资料信息"];
@@ -207,13 +210,27 @@
     //压缩
     //NSData *imageData = UIImageJPEGRepresentation(self.upgradeMerchantView.qualiImageView.image, 0.5);
     //@"baseFile":[imageData base64EncodedStringWithOptions:0]
-    NSDictionary *data = @{@"clientId":[[NSUserDefaults standardUserDefaults] stringForKey:UserID],
-                           @"marketId":maskID,
-                           @"clientName":self.upgradeMerchantView.shopTextField.text,
-                           @"linkman":self.upgradeMerchantView.connectPersonTextField.text,
-                           @"telephone":self.upgradeMerchantView.connectTelTextField.text,
-                           @"sellerStallInfo":self.upgradeMerchantView.boothTextField.text,
-                           @"promoterId":self.upgradeMerchantView.inviteCoderTextField.text};
+    
+    
+    NSDictionary *data;
+    
+    if ([self.upgradeMerchantView.inviteCoderTextField.text isEqualToString:@"0"]||[self.upgradeMerchantView.inviteCoderTextField.text isNull]) {
+        data = @{@"clientId":[[NSUserDefaults standardUserDefaults] stringForKey:UserID],
+                 @"marketId":maskID,
+                 @"clientName":self.upgradeMerchantView.shopTextField.text,
+                 @"linkman":self.upgradeMerchantView.connectPersonTextField.text,
+                 @"telephone":self.upgradeMerchantView.connectTelTextField.text,
+                 @"sellerStallInfo":self.upgradeMerchantView.boothTextField.text,
+                 @"promoterId":@"0"};
+    }else{
+        data = @{@"clientId":[[NSUserDefaults standardUserDefaults] stringForKey:UserID],
+                 @"marketId":maskID,
+                 @"clientName":self.upgradeMerchantView.shopTextField.text,
+                 @"linkman":self.upgradeMerchantView.connectPersonTextField.text,
+                 @"telephone":self.upgradeMerchantView.connectTelTextField.text,
+                 @"sellerStallInfo":self.upgradeMerchantView.boothTextField.text,
+                 @"promoterId":self.upgradeMerchantView.inviteCoderTextField.text};
+    }
     
     //店铺名
     [[NSUserDefaults standardUserDefaults] setObject:self.upgradeMerchantView.shopTextField.text forKey:@"clientName_up"];
@@ -228,9 +245,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.upgradeMerchantView.connectTelTextField.text forKey:@"telephone_up"];
     //邀请码
     [[NSUserDefaults standardUserDefaults] setObject:self.upgradeMerchantView.inviteCoderTextField.text forKey:@"inviteCoder_up"];
-    
-    
     NSDictionary *pradic = [data signWithSecurityKey];
+    NSLog(@"pradic --- %@",pradic);
     NSString *testurl    = [NSString stringWithFormat:@"%@/client/doUpSellerBase64",API];
     [[MJNetManger shareManager] requestWithType:HttpRequestTypePost withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
         [self.hud hideAnimated:YES];

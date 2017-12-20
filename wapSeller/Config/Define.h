@@ -18,17 +18,13 @@
 #define NSLog(format, ...)
 #endif
 
-
-
-
-
 #ifndef Define_h
 #define Define_h
 
-
 //server
-#define API         @"http://192.168.199.14:9080/mjyg-purchase-web-client-mobile/app"
+//#define API         @"http://192.168.199.14:9080/mjyg-purchase-web-client-mobile/app"
 //#define API         @"http://192.168.199.106:8080/mjyg-purchase-web-client-mobile/app"
+#define API         @"http://dev.yugou360.com/mjyg-purchase-web-client-mobile/app"
 
 //Base
 #define primaryColor @"F11E27"

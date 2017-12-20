@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"升级为商家";
+    self.title = @"填写卖家信息";
     [self hideBack];
     [self rightButton];
     [[NSNotificationCenter defaultCenter] addObserver:self

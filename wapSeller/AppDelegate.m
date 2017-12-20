@@ -68,6 +68,11 @@
     [[GuidePageManager defaultManage] checkGuidPage];
     //UM //科大讯飞
     [UM_Manager initUm];
+    //login
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGIN]&&
+        [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@",IS_First,VERSION_MJ]]) {
+        [MJUpdateUserInfo checkSysUp];
+    }
     
     return YES;
 }
@@ -100,6 +105,7 @@
     }
     // Required, iOS 7 Support
     [JPUSHService handleRemoteNotification:userInfo];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
@@ -175,6 +181,13 @@
     if (application.applicationIconBadgeNumber > 0) {
         application.applicationIconBadgeNumber = 0;
     }
+    
+    
+    //login
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:IS_LOGIN]&&
+        [[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"%@%@",IS_First,VERSION_MJ]]) {
+        [MJUpdateUserInfo checkSysStrongUp];
+    }
 }
 
 
@@ -230,20 +243,20 @@
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         NSLog(@"iOS10 收到远程通知");
         NSLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
-        
+         
     }else {
         // 判断为本地通知
         NSLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
     }
     //notification fresh
     [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationfreshwait" object:nil];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     completionHandler();  // 系统要求执行这个方法
 }
 
 
 #endif
 /**
- 
  **/
 
 

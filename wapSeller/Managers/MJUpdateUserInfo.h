@@ -10,4 +10,8 @@
 
 @interface MJUpdateUserInfo : NSObject
 + (void)updateInfo;
+
+
++ (void)checkSysUp;
++ (void)checkSysStrongUp;
 @end

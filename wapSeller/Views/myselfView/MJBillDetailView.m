@@ -140,7 +140,7 @@
                            b:139
                textAlignment:NSTextAlignmentLeft
                         font:[UIFont systemFontOfSize:em*48]];
-    [self.up_scrollView addSubview:self.wechatidTipLabel];
+    //[self.up_scrollView addSubview:self.wechatidTipLabel];
     
     [MJLabelManager setLabel:self.wechatnoLabel
                         text:@"- -"
@@ -149,7 +149,7 @@
                            b:71
                textAlignment:NSTextAlignmentRight
                         font:[UIFont systemFontOfSize:em*48]];
-    [self.up_scrollView addSubview:self.wechatnoLabel];
+    //[self.up_scrollView addSubview:self.wechatnoLabel];
     
     //流水号
     [MJLabelManager setLabel:self.liushuiTipLabel
@@ -198,10 +198,10 @@
     
     NSString *channelId = [NSString stringWithFormat:@"%@",detailDIc[@"channelId"]];//方式
     
-    NSString *clientId = [NSString stringWithFormat:@"%@",detailDIc[@"clientId"]];
+    NSString *channelUser = [NSString stringWithFormat:@"%@",detailDIc[@"channelUser"]];
     NSString *billNo   = [NSString stringWithFormat:@"%@",detailDIc[@"billNo"]];
-    if ([clientId isNull]) {
-        clientId = @"暂无";
+    if ([channelUser isNull]) {
+        channelUser = @"暂无";
     }
     if ([billNo isNull]) {
         billNo = @"暂无";
@@ -209,14 +209,14 @@
     
     
     if ([channelId isEqualToString:@"ALIPAY_MOBILE"]) {
-        self.wechatidTipLabel.text = @"支付宝ID";
-        self.wechatnoLabel.text    = clientId;
+        //self.wechatidTipLabel.text = @"支付宝ID";
+        //self.wechatnoLabel.text    = channelUser;
         self.liushuiTipLabel.text = @"流水号";
         self.liushuiLabel.text    = billNo;
         self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",@"支付宝"];
     }else if([channelId isEqualToString:@"WX_APP"]){
-        self.wechatidTipLabel.text = @"微信ID";
-        self.wechatnoLabel.text    = clientId;
+        //self.wechatidTipLabel.text = @"微信ID";
+        //self.wechatnoLabel.text    = channelUser;
         self.liushuiTipLabel.text = @"流水号";
         self.liushuiLabel.text    = billNo;
         self.paytypeLabel.text    = [NSString stringWithFormat:@"%@",@"微信"];
@@ -333,7 +333,7 @@
 ////流水号
 - (UILabel *)liushuiTipLabel{
     if (_liushuiTipLabel==nil) {
-        _liushuiTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(em*35, CGRectGetMaxY(self.wechatnoLabel.frame)+em*70, em*150, em*45)];
+        _liushuiTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(em*35, CGRectGetMaxY(self.paytypeLabel.frame)+em*70, em*150, em*45)];
     }
     return _liushuiTipLabel;
 }
@@ -341,8 +341,9 @@
 
 - (UILabel *)liushuiLabel{
     if (_liushuiLabel==nil) {
-        _liushuiLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-em*35-em*600, CGRectGetMaxY(self.wechatnoLabel.frame)+em*70, em*600, em*45)];
+        _liushuiLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-em*35-em*800, CGRectGetMaxY(self.paytypeLabel.frame)+em*70, em*800, em*45)];
     }
+    //_liushuiLabel.backgroundColor = [UIColor redColor];
     return _liushuiLabel;
 }
 

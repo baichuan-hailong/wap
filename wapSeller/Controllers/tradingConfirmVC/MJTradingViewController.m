@@ -561,7 +561,6 @@
     //bug
     [_mytimer invalidate];
     _mytimer  = nil;
-    [self.tradingView.failedPopView setTip:[UIImage imageNamed:@"failed_image"] tipText:@"确认失败" des:@"可用余额不足，请充值后再试"];
     [[UIApplication sharedApplication].keyWindow addSubview:self.tradingView.failedPopView];
     [UIView animateWithDuration:0.18 animations:^{
         self.tradingView.failedPopView.alpha = 1;
@@ -618,6 +617,8 @@
     NSLog(@"listby --- %@",pradic);
     [[MJNetManger shareManager] requestWithType:HttpRequestTypeGet withUrlString:testurl withParaments:pradic withSuccessBlock:^(NSDictionary *object) {
         NSLog(@"Operation --- %@",object);
+        NSLog(@"%@",object[@"message"]);
+        NSLog(@"%@",object[@"m"]);
         NSString *status = [NSString stringWithFormat:@"%@",object[@"status"]];
         if ([status isEqualToString:@"1000"]) {
             [self refresh:confirmVal index:index isWaitList:isWait];
@@ -635,6 +636,7 @@
                 [self.tradingView.failedPopView setTip:[UIImage imageNamed:@"failed_image"]
                                                       tipText:@"确认失败"
                                                           des:[NSString stringWithFormat:@"%@",object[@"m"]]];
+                
                 [self failPop];
             }else{
                 [ProgressHUD_Manager showTo:self.view tipText:[NSString stringWithFormat:@"%@",object[@"m"]]];

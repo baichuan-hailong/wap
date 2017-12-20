@@ -43,19 +43,37 @@
         
         //self.requestSerializer                 = [AFJSONRequestSerializer  serializer];
         //self.responseSerializer                = [AFJSONResponseSerializer serializer];
-        
         self.requestSerializer                 = [AFHTTPRequestSerializer  serializer];
         //self.responseSerializer                = [AFHTTPResponseSerializer serializer];
         self.responseSerializer                = [AFJSONResponseSerializer serializer];
+        
+        
+        
+        //服务器端配置的包含公钥的证书分发到客户端后,需要转换为DER格式的证书文件.
+        //openssl x509 -outform der -in tv.diveinedu.com.crt -out tv.diveinedu.com.der
+        NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"mjyg_server" ofType:@"cer"];
+        NSLog(@"%@",certFilePath);
+        NSData   *certData = [NSData dataWithContentsOfFile:certFilePath];
+        NSSet    *certSet = [NSSet setWithObject:certData];
+        //NSLog(@"%@",certData);
+        AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey withPinnedCertificates:certSet];
+        self.securityPolicy = policy;
+        //允许非权威机构颁发的证书
+        self.securityPolicy.allowInvalidCertificates = YES;
+        //也不验证域名一致性
+        //self.securityPolicy.validatesDomainName = NO;
+        //关闭缓存避免干扰测试
+        //self.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        
+        
+        
         /**设置请求超时时间*/
         self.requestSerializer.timeoutInterval = 3;
         self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/json",@"application/json",@"text/javascript",@"text/html",nil];
         //form-data
-        //[self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
         [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"enctype"];
-        
+        //[self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
         //[self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
     }
     return self;
 }
@@ -68,7 +86,6 @@
 
 
 #pragma mark - 网络请求的类方法---get/post
-
 /**
  *  网络请求的实例方法
  *

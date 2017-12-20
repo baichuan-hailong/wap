@@ -48,7 +48,7 @@
     
     
     [MJBtnManager setButton:self.resetUpBtn
-                      title:@"修改商家信息"
+                      title:@"修改卖家信息"
                   textColor:[UIColor colorWithHex:@"f91e1e"]
                        font:[UIFont systemFontOfSize:em*42]
                 borderColor:[UIColor colorWithHex:@"ff1e1e"] borderWidth:1 radius:em*48];

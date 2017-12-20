@@ -53,6 +53,8 @@
                    textColor:[UIColor whiteColor]
                textAlignment:NSTextAlignmentCenter
                         font:[UIFont systemFontOfSize:em*32]];
+    self.descriptionLabel.numberOfLines = 0;
+    //self.descriptionLabel.backgroundColor = [UIColor redColor];
     [self addSubview:self.descriptionLabel];
 }
 
@@ -62,6 +64,8 @@
 - (void)setTip:(UIImage *)tipImage tipText:(NSString *)tipText des:(NSString *)desText{
     self.tipImgeView.image = tipImage;
     self.tipLabel.text = tipText;
+    
+    self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.text = desText;
     //NSLog(@"desText --- %@",desText);
 }
@@ -90,7 +94,7 @@
 
 - (UILabel *)descriptionLabel{
     if (_descriptionLabel==nil) {
-        _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, em*582+64+em*312, SCREEN_WIDTH-4, em*33)];
+        _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-em*450)/2, em*582+64+em*312-em*30, em*450, em*93)];
     }
     return _descriptionLabel;
 }

@@ -12,8 +12,8 @@
 + (void)initUm{
     
     //科大讯飞
-    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@", @"5a2e27ba"];
-    [IFlySpeechUtility createUtility:initString];
+    //NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@", @"5a2e27ba"];
+    //[IFlySpeechUtility createUtility:initString];
     
     
     //um

@@ -201,9 +201,13 @@
     NSString *deductStyle = [NSString stringWithFormat:@"%@",activityDic[@"deductStyle"]];
     //NSLog(@"%@",deductStyle);
     NSString *buyerBackRate = [NSString stringWithFormat:@"%@",activityDic[@"buyerBackRate"]];
+    NSLog(@"%@",buyerBackRate);
     if ([deductStyle isEqualToString:@"按金额"]) {
         self.cashBackLable.font= [UIFont systemFontOfSize:em*72];
-        self.cashBackLable.text = [NSString stringWithFormat:@"%.0f%@",[buyerBackRate floatValue]*100,@"%"];
+        float  backratefl = [buyerBackRate floatValue];
+        //NSLog(@"backratefl --- %f",backratefl);
+        //NSLog(@"backratefl --- %f",backratefl*100);
+        self.cashBackLable.text = [NSString stringWithFormat:@"%.2f%@",backratefl*100,@"%"];
     }else{
         self.cashBackLable.font= [UIFont systemFontOfSize:em*52];
         NSString *unitName = [NSString stringWithFormat:@"%@",activityDic[@"unitName"]];

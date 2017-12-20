@@ -60,6 +60,7 @@
 		E676E6231FD0FC0100B70AB2 /* MJMyActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E676E6221FD0FC0100B70AB2 /* MJMyActivityDetailView.m */; };
 		E676E6261FD14E5400B70AB2 /* MJUpdateUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E676E6251FD14E5400B70AB2 /* MJUpdateUserInfo.m */; };
 		E68886E31FE20C2E0014FB4E /* UM_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E68886E21FE20C2E0014FB4E /* UM_Manager.m */; };
+		E69435641FEA74DF00F125BA /* MJUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E69435631FEA74DF00F125BA /* MJUserProtocolViewController.m */; };
 		E69FCEC11FD4FF460081DEF3 /* FMDB_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC01FD4FF460081DEF3 /* FMDB_Manager.m */; };
 		E69FCEC41FD524680081DEF3 /* Token_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC31FD524680081DEF3 /* Token_Manager.m */; };
 		E69FCEC71FD5470F0081DEF3 /* MJCamerAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69FCEC61FD5470F0081DEF3 /* MJCamerAlertView.m */; };
@@ -239,6 +240,8 @@
 		E676E6251FD14E5400B70AB2 /* MJUpdateUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJUpdateUserInfo.m; sourceTree = "<group>"; };
 		E68886E11FE20C2E0014FB4E /* UM_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UM_Manager.h; sourceTree = "<group>"; };
 		E68886E21FE20C2E0014FB4E /* UM_Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UM_Manager.m; sourceTree = "<group>"; };
+		E69435621FEA74DF00F125BA /* MJUserProtocolViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJUserProtocolViewController.h; sourceTree = "<group>"; };
+		E69435631FEA74DF00F125BA /* MJUserProtocolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJUserProtocolViewController.m; sourceTree = "<group>"; };
 		E69FCEBF1FD4FF460081DEF3 /* FMDB_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDB_Manager.h; sourceTree = "<group>"; };
 		E69FCEC01FD4FF460081DEF3 /* FMDB_Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDB_Manager.m; sourceTree = "<group>"; };
 		E69FCEC21FD524680081DEF3 /* Token_Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Token_Manager.h; sourceTree = "<group>"; };
@@ -718,6 +721,8 @@
 				E66B85331FCAB8D800BF9572 /* MJUpgradeMerchantViewController.m */,
 				E69FCECE1FD63B240081DEF3 /* MJUpWaitingViewController.h */,
 				E69FCECF1FD63B240081DEF3 /* MJUpWaitingViewController.m */,
+				E69435621FEA74DF00F125BA /* MJUserProtocolViewController.h */,
+				E69435631FEA74DF00F125BA /* MJUserProtocolViewController.m */,
 			);
 			path = loginVC;
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 				E642E0541FC80B43008644DA /* MJTradingConfirmView.m in Sources */,
 				E69FCECA1FD62CE20081DEF3 /* MJPaySuccessfulViewController.m in Sources */,
 				E642E05D1FC81B38008644DA /* MJLabelManager.m in Sources */,
+				E69435641FEA74DF00F125BA /* MJUserProtocolViewController.m in Sources */,
 				E642E0511FC809C9008644DA /* MJNavlogoView.m in Sources */,
 				E6BFB7811FCECA2B00008EE2 /* Base64ImageManager.m in Sources */,
 				E66B851D1FCA6B0A00BF9572 /* MJBillView.m in Sources */,

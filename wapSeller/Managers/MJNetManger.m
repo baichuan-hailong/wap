@@ -51,15 +51,15 @@
         
         //服务器端配置的包含公钥的证书分发到客户端后,需要转换为DER格式的证书文件.
         //openssl x509 -outform der -in tv.diveinedu.com.crt -out tv.diveinedu.com.der
-        NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"mjyg_server" ofType:@"cer"];
-        NSLog(@"%@",certFilePath);
-        NSData   *certData = [NSData dataWithContentsOfFile:certFilePath];
-        NSSet    *certSet = [NSSet setWithObject:certData];
+        //NSString *certFilePath = [[NSBundle mainBundle] pathForResource:@"mjyg_server" ofType:@"cer"];
+        //NSLog(@"%@",certFilePath);
+        //NSData   *certData = [NSData dataWithContentsOfFile:certFilePath];
+        //NSSet    *certSet = [NSSet setWithObject:certData];
         //NSLog(@"%@",certData);
-        AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey withPinnedCertificates:certSet];
-        self.securityPolicy = policy;
+        //AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey withPinnedCertificates:certSet];
+        //self.securityPolicy = policy;
         //允许非权威机构颁发的证书
-        self.securityPolicy.allowInvalidCertificates = YES;
+        //self.securityPolicy.allowInvalidCertificates = YES;
         //也不验证域名一致性
         //self.securityPolicy.validatesDomainName = NO;
         //关闭缓存避免干扰测试

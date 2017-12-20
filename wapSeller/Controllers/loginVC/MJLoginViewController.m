@@ -11,6 +11,7 @@
 
 #import "MJUpgradeMerchantViewController.h"
 #import "MJUpWaitingViewController.h"
+#import "MJUserProtocolViewController.h"
 
 @interface MJLoginViewController ()<UINavigationControllerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)MJLoginView *loginView;
@@ -39,6 +40,9 @@
     self.title = @"登录";
     [self hideBack];
     [self addActon];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitSuccessful) name:@"commitSuccessfultwo" object:nil];
+    
 }
 
 /**冲突**/
@@ -52,6 +56,12 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
+- (void)commitSuccessful{
+    [self dismissViewControllerAnimated:NO completion:nil];
+    //[self.navigationController popViewControllerAnimated:NO];
+}
+
+
 - (void)addActon{
     //登陆
     [self.loginView.loginBtn addTarget:self action:@selector(loginBtnDidClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -60,6 +70,8 @@
     //tap
     UITapGestureRecognizer *tapQulityGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction:)];
     [self.loginView addGestureRecognizer:tapQulityGR];
+    
+    [self.loginView.xieyiBtn addTarget:self action:@selector(xieyiBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.loginView.telTextField.delegate = self;
     self.loginView.coderTextField.delegate=self;
@@ -70,6 +82,14 @@
     [UIView animateWithDuration:0.38 animations:^{
         self.loginView.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64);
     } completion:nil];
+}
+
+
+#pragma mark - 协议
+- (void)xieyiBtnClick:(UIButton *)sender{
+    MJUserProtocolViewController *userProVC = [[MJUserProtocolViewController alloc] init];
+    UINavigationController *userProNC = [[UINavigationController alloc] initWithRootViewController:userProVC];
+    [self presentViewController:userProNC animated:NO completion:nil];
 }
 
 #pragma mark - TF Delegate

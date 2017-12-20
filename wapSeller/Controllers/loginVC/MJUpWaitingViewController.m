@@ -134,9 +134,12 @@
                 if ([sellerAuditResult isEqualToString:@"0"]) {
                     //0 未升级 等待状态
                 }else if ([sellerAuditResult isEqualToString:@"1"]){
+                    
                     //1 升级成功
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessful" object:nil];
-                    [self dismissViewControllerAnimated:NO completion:nil];
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessfultwo" object:nil];
+                    }];
                 }else{
                     //2 升级失败
                     //审核失败

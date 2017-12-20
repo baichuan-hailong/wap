@@ -24,7 +24,8 @@
 //server
 //#define API         @"http://192.168.199.14:9080/mjyg-purchase-web-client-mobile/app"
 //#define API         @"http://192.168.199.106:8080/mjyg-purchase-web-client-mobile/app"
-#define API         @"http://dev.yugou360.com/mjyg-purchase-web-client-mobile/app"
+#define API         @"https://m.yugou360.com/mjyg-purchase-web-client-mobile/app"
+#define API_xieyi   @"https://m.yugou360.com/mjyg-purchase-web-client-mobile"
 
 //Base
 #define primaryColor @"F11E27"
@@ -56,8 +57,8 @@
 #define JPregistrationId      @"jp_registrationId"
 
 //MU
-#define UMAppKey              @"5a31d0768f4a9d5cc100018b" //dev
-//#define UMAppKey            @"5a31d134f43e4823610000c1" //dev
+//#define UMAppKey              @"5a31d0768f4a9d5cc100018b" //dev
+#define UMAppKey            @"5a31d134f43e4823610000c1" //pro
 
 
 //*** 屏幕尺寸 ***//

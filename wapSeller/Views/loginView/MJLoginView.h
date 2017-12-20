@@ -14,5 +14,7 @@
 @property(nonatomic,strong)UIButton    *coderBtn;
 @property(nonatomic,strong)UIButton    *loginBtn;
 
+@property(nonatomic,strong)UIButton    *xieyiBtn;
+
 @property(nonatomic, strong)UIScrollView *up_scrollView;
 @end

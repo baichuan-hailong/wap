@@ -29,6 +29,17 @@
 - (void)addUI{
     
     [self addSubview:self.up_scrollView];
+    
+    
+    [MJBtnManager setButton:self.xieyiBtn
+                      title:@"《用户使用协议》"
+                  textColor:[UIColor colorWithRed:128/255.0 green:128/255.0 blue:139/255.0 alpha:1]
+                       font:[UIFont systemFontOfSize:em*38]
+                borderColor:[UIColor colorWithRed:218/255.0 green:218/255.0 blue:230/255.0 alpha:1]
+                borderWidth:0
+                     radius:0];
+    self.xieyiBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [self.up_scrollView addSubview:self.xieyiBtn];
 
     [MJBtnManager setButton:self.loginBtn
                        text:@"快速登录"
@@ -99,9 +110,19 @@
 }
 
 
+- (UIButton *)xieyiBtn{
+    if (_xieyiBtn==nil) {
+        _xieyiBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-em*910)/2, em*1120, em*910, em*80)];
+        
+    }
+    return _xieyiBtn;
+}
+
+
+
 - (UIButton *)loginBtn{
     if (_loginBtn==nil) {
-        _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-em*910)/2, em*1170, em*910, em*132)];
+        _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-em*910)/2, em*1270, em*910, em*132)];
     }
     return _loginBtn;
 }

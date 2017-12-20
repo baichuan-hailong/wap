@@ -51,7 +51,7 @@
     // Required --- init Push
     [JPUSHService setupWithOption:launchOptions appKey:JPushAppKey
                           channel:@"App Store"
-                 apsForProduction:NO
+                 apsForProduction:YES
             advertisingIdentifier:advertisingId];
     
     //2.1.9版本新增获取registration id block接口。

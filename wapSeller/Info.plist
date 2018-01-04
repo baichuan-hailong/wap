@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>14</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>weixin</string>
@@ -56,6 +56,8 @@
 	<string>微爱批想要使用您的蓝牙</string>
 	<key>NSCameraUsageDescription</key>
 	<string>微爱批想要使用您的相机</string>
+	<key>NSContactsUsageDescription</key>
+	<string>微爱批想要访问您的通讯录</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string> 微爱批想使用您的麦克风</string>
 	<key>NSPhotoLibraryUsageDescription</key>

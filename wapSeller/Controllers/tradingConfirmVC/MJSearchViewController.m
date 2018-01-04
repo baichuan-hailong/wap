@@ -53,7 +53,7 @@
     self.searchView.moneyTextField.returnKeyType = UIReturnKeySearch;
     self.searchView.moneyTextField.delegate = self;
     
-    [self.searchView.myDatePicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
+    //[self.searchView.myDatePicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchaction) name:@"" object:nil];
 }
 

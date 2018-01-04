@@ -110,8 +110,8 @@
 - (void)finishlLogin{
     [self waitBtnClick:nil];
     if (waitArray.count>0) {
-        [self waitloadSource];
     }
+    [self waitloadSource];
     if (sureArray.count>0) {
         [self sureloadSource];
     }

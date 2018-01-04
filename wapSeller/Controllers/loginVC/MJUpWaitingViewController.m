@@ -135,8 +135,12 @@
                     //0 未升级 等待状态
                 }else if ([sellerAuditResult isEqualToString:@"1"]){
                     
+                    //本地存储
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IS_LOGIN];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"finishlLogin" object:nil];
                     //1 升级成功
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessful" object:nil];
+                    //[[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessful" object:nil];
+                    //[[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessfultwo" object:nil];
                     [self dismissViewControllerAnimated:NO completion:^{
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"commitSuccessfultwo" object:nil];
                     }];

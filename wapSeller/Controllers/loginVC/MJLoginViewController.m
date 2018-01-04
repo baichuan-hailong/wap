@@ -58,7 +58,6 @@
 
 - (void)commitSuccessful{
     [self dismissViewControllerAnimated:NO completion:nil];
-    //[self.navigationController popViewControllerAnimated:NO];
 }
 
 
@@ -158,7 +157,6 @@
                         if ([sellerAuditResult isEqualToString:@"0"]) {
                             //0 未升级（已提交资料）--- 审核中ji
                             //已经提交审核 
-                            
                             MJUpWaitingViewController *upWairing = [[MJUpWaitingViewController alloc] init];
                             upWairing.isSuccessful = YES;
                             UINavigationController *upWaitingNV = [[UINavigationController alloc] initWithRootViewController:upWairing];

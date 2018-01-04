@@ -63,7 +63,7 @@
             NSLog(@"registrationID获取失败，code：%d",resCode);
         }
     }];
-
+    
     //GP  login
     [[GuidePageManager defaultManage] checkGuidPage];
     //UM //科大讯飞
@@ -100,6 +100,7 @@
         //notification fresh
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationfreshwait" object:nil];
     }else{
+        NSLog(@"%@",userInfo);
         //notification fresh
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationfreshwait" object:nil];
     }
@@ -157,6 +158,12 @@
 //wechat api
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [WXApi handleOpenURL:url delegate:[WechatManager sharedManager]];
+}
+
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
+    //iPad竖屏
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

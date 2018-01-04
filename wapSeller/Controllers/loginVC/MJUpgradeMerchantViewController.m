@@ -54,8 +54,7 @@
         self.upgradeMerchantView.inviteCoderTextField.userInteractionEnabled = NO;
     }
     
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitSuccessful) name:@"commitSuccessful" object:nil];
-    
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commitSuccessful) name:@"commitSuccessful" object:nil];
     [self maskList];
 }
 
@@ -64,8 +63,8 @@
 }
 
 - (void)commitSuccessful{
-    [self dismissViewControllerAnimated:NO completion:nil];
-    [self.navigationController popViewControllerAnimated:NO];
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    //[self.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)maskList{

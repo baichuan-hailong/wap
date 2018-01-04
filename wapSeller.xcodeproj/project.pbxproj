@@ -24,7 +24,6 @@
 		E628CFCD1FC6C18E00515345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E628CFCC1FC6C18E00515345 /* main.m */; };
 		E628CFD71FC6C18E00515345 /* wapSellerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E628CFD61FC6C18E00515345 /* wapSellerTests.m */; };
 		E628CFE21FC6C18E00515345 /* wapSellerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E628CFE11FC6C18E00515345 /* wapSellerUITests.m */; };
-		E637C26B1FE8B241003BB73E /* mjyg_server.cer in Resources */ = {isa = PBXBuildFile; fileRef = E637C26A1FE8B240003BB73E /* mjyg_server.cer */; };
 		E642E02E1FC7CB3B008644DA /* MJTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E642E02D1FC7CB3B008644DA /* MJTabBarController.m */; };
 		E642E03B1FC7D168008644DA /* UIColor+UIColor_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E642E03A1FC7D168008644DA /* UIColor+UIColor_Util.m */; };
 		E642E03E1FC7E441008644DA /* MJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E642E03D1FC7E441008644DA /* MJBaseViewController.m */; };
@@ -167,7 +166,6 @@
 		E628CFDD1FC6C18E00515345 /* wapSellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wapSellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E628CFE11FC6C18E00515345 /* wapSellerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wapSellerUITests.m; sourceTree = "<group>"; };
 		E628CFE31FC6C18E00515345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E637C26A1FE8B240003BB73E /* mjyg_server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = mjyg_server.cer; sourceTree = "<group>"; };
 		E642E0271FC7C3AF008644DA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		E642E0281FC7C868008644DA /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		E642E02C1FC7CB3B008644DA /* MJTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJTabBarController.h; sourceTree = "<group>"; };
@@ -433,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				E6FCCA911FD3D8CD00136226 /* wapSeller.entitlements */,
-				E637C26A1FE8B240003BB73E /* mjyg_server.cer */,
 				E628CFBD1FC6C18E00515345 /* AppDelegate.h */,
 				E628CFBE1FC6C18E00515345 /* AppDelegate.m */,
 				E63EC1461FC6DAD6005C83F1 /* Controllers */,
@@ -910,7 +907,6 @@
 				E628CFCA1FC6C18E00515345 /* LaunchScreen.storyboard in Resources */,
 				E6BFB7AB1FCFE6DD00008EE2 /* README.txt in Resources */,
 				E628CFC71FC6C18E00515345 /* Assets.xcassets in Resources */,
-				E637C26B1FE8B241003BB73E /* mjyg_server.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,7 +1242,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjyg360.sell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1277,7 +1273,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjyg360.sell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
